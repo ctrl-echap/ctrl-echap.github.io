@@ -21,7 +21,7 @@ body {
 }
 
 .body_accueil{
-    background-image: url("https://assets.onecompiler.app/43a98jszu/43h3knddk/arriere-accueil.png");
+    background-image: url("images/accueil.png");
     background-size: cover;
     background-repeat: no-repeat;
     height: 100vh;
