@@ -1,10 +1,44 @@
- <!DOCTYPE html>
+<!DOCTYPE html>
+<!--Auteur : ctrl + échap-->
+<!--Cote de cours : ICS3U-->
 <html>
-  <head>
-     <meta charset="utf-8">
-     <title>Accueil</title>
-  </head>
-  <body>
-     <p>En progrès...</p>
-  </body>
+    <head>
+        <meta charset="utf-8">
+        <title>Accueil</title>
+        <link rel="stylesheet" href="css/styles.css">
+        <link rel="preconnect" href="https://fonts.googleapis.com">
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link href="https://fonts.googleapis.com/css2?family=Spicy+Rice&display=swap" rel="stylesheet">
+        <style>
+        
+            .boutons_accueil{
+                display: flex;
+                justify-content: center;
+                align-items: center;
+                
+                height: 40vh;
+            }
+             
+            .commencer, .instructions{
+                padding: 15px 30px;
+                font-size:20px;
+                transition: background-color 0.3s;
+                color:  light green;
+                border: none;
+                border-radius: 8px;
+            }
+            
+             
+        </style>
+    </head> 
+    
+    <body class="body_accueil"> 
+        <h1 class="titre">🕵️ L'Évasion de l'arthméticien 🧑‍🏫</h1>
+        <center>
+            <div class="boutons_accueil">
+                <button class="commencer">Commencer</button>
+                <button class="instructions" style="cursor:help;">?</button>
+            </div>
+        </center>
+    </body>
 </html>
