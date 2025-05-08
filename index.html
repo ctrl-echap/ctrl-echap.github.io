@@ -15,30 +15,49 @@
                 display: flex;
                 justify-content: center;
                 align-items: center;
-                
                 height: 40vh;
+                
             }
              
             .commencer, .instructions{
                 padding: 15px 30px;
+                margin: 15px;
                 font-size:20px;
-                transition: background-color 0.3s;
-                color:  light green;
+                transition: 0.3s ease;
+                color:  black;
                 border: none;
                 border-radius: 8px;
             }
+           .commencer:hover, .instructions:hover {
+                background-color: #F2D2A5; 
+                color: white;
+                padding: 12px 24px;
+                border: none;
+                border-radius: 8px;
+                cursor: pointer;
+            }
+            
+
             
              
         </style>
     </head> 
     
     <body class="body_accueil"> 
-        <h1 class="titre">🕵️ L'Évasion de l'arthméticien 🧑‍🏫</h1>
         <center>
-            <div class="boutons_accueil">
-                <button class="commencer">Commencer</button>
-                <button class="instructions" style="cursor:help;">?</button>
+            <div style="position: fixed; top: 32%; width: 90%; margin: 5%">
+                <h1 class="titre">L'Évasion de l'arithméticien</h1>
+
+                <div class="boutons_accueil">
+                    <a  href="chambre1vue1.html">
+                        <button class="commencer" style="cursor: help;">Commencer</button>
+                    </a>
+                    <a  href="instructions.html">
+                        <button class="instructions" style="cursor: help;">?</button>
+                    </a>
+                </div>
             </div>
+                
         </center>
     </body>
 </html>
