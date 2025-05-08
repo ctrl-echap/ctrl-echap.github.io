@@ -21,7 +21,7 @@ body {
 }
 
 .body_accueil{
-    background-image: url("images/accueil.png");
+    background-image: url("https://ctrl-echap.github.io/l-evasion-de-l-arithmeticien/images/accueil.png");
     background-size: cover;
     background-repeat: no-repeat;
     height: 100vh;
