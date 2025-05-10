@@ -1,1 +1,41 @@
+<html>
+    <head>
+        <meta charset="utf-8">
+    </head>
+    <body>
+        <form>
+            <table border="6" align="center">
+               <tr>
+                   <td>
+                   <label for="question2">Quelle  est valeur de x dans l'équation: <br>(X-2)/(5X+7)=7/52</label>
+                  <br> <input id="question2" type="text"><br>
+                  <input type="button" value="ok" id="soumettre" onclick="salle1Question2()">
+                   </td>
+               </tr> 
+                
+            </table>
+            <div id="divaffiche2">
+            </div>
+            <script>
+                function salle1Question2(){
+    var affiche=document.getElementById("divaffiche2");
+    var entrer=parseInt(document.getElementById("question2").value);
+    var reponse = 9;
+    
+        if (entrer== reponse) {
+            var message1="bravo!! Vous avez trouvé la 2éme entrée du mot de passe.Continuez comme ca.";
+            affiche.innerHTML=message1;
+        } else {
+            var validation = "false";
+            while (validation == "false") {
+               validation = "true"
+           var message2="Ah non! désolé mauvaise réponse! veuillez réessayer";
+            affiche.innerHTML=message2;
+                }
+        }
+}
 
+            </script>
+        </form>
+    </body>
+</html>
