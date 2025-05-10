@@ -1,28 +1,36 @@
 <!DOCTYPE html>
 <html>
     <head>
+        <meta charset="utf-8">
+        <title>Chambre 1</title>
         <link rel="stylesheet" href="css/styles.css">
         <link rel="preconnect" href="https://fonts.googleapis.com">
         <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
         <link href="https://fonts.googleapis.com/css2?family=Spicy+Rice&display=swap" rel="stylesheet">
-        <style>
-            .lit {
-                height: 100vh;
-                position: relative;
-                bottom: 101vh;
-                display: flex;
-                justify-content: center;
-            }
-        </style>
+        <script src="script/imageMapResizer.min.js"></script>
     </head>
     
-    <body class="">
+    <body style="background-color: #F6AD89">
         <center>
-            <div>
-                <img src="https://ctrl-echap.github.io/l-evasion-de-l-arithmeticien/images/mur1_WIP.png" style="height: 100vh;">
-                <img src="https://ctrl-echap.github.io/l-evasion-de-l-arithmeticien/images/lit_WIPv2.png" class="lit">
+            <!-- Image d'arrière-plan avec des sections cliquables -->
+            <div style="height: 100vh; overflow: hidden">
+                <!-- Image d'arrière-plan -->
+                <img src="images/chambre1vue1.png" style="height: 100vh;" usemap="#chambre1vue1-map">
+                
+                <!-- Les sections cliquables sur l'image d'arrière-plan -->
+                <!-- Image Map générée par http://www.image-map.net/ -->
+                <map name="chambre1vue1-map">
+                    <area target="" alt="" title="" href="" coords="1171,673,1193,675,1210,682,1234,682,1244,665,1239,636,1247,638,1257,631,1252,611,1224,572,1224,558,1218,546,1229,534,1232,517,1217,504,1200,509,1193,521,1191,529,1173,531,1157,523,1144,521,1135,528,1132,541,1137,551,1147,556,1146,567,1151,580,1149,589,1132,597,1124,606,1112,621,1110,633,1110,641,1118,643,1129,641,1124,651,1124,663,1127,672,1135,677,1146,677,1154,677,1161,677,1164,675" shape="poly">
+                    <area target="" alt="" title="" href="" coords="1608,1037,1691,1042,1699,1035,1720,1030,1738,1011,1737,987,1732,967,1723,942,1709,901,1696,869,1691,840,1693,809,1701,786,1706,769,1721,804,1732,775,1740,748,1747,723,1754,699,1764,664,1762,631,1748,611,1735,604,1723,613,1720,623,1706,621,1703,599,1704,576,1709,547,1720,510,1726,486,1723,464,1709,452,1694,457,1684,468,1671,466,1654,462,1643,481,1638,501,1645,528,1650,550,1642,555,1620,571,1604,559,1593,547,1582,559,1577,577,1577,598,1582,615,1582,635,1589,657,1591,678,1594,694,1589,705,1584,713,1598,711,1599,723,1602,749,1618,839,1613,866,1600,893,1557,986,1559,1006,1571,1022,1586,1034" shape="poly">
+                    <area target="" alt="" title="" href="" coords="1290,94,1288,388,1432,452,1461,440,1461,145,1315,74" shape="poly">
+                </map>
             </div>
         </center>
+        
+        <script>
+            imageMapResize(); // Appel à la fonction qui permet de redimensionner les image maps
+        </script>
     </body>
     
 </html>
+
