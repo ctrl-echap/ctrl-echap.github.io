@@ -1,0 +1,40 @@
+<html>
+    <head>
+        <meta charset="utf-8">
+    </head>
+    <body>
+        <form>
+            <table border="6" align="center">
+               <tr>
+                   <td>
+                   <label for="question">Quelle  est valeur de x dans l'équation: <br>7x - 2 + 55x - 7 = 301</label>
+                  <br> <input id="question" type="text"><br>
+                  <input type="button" value="ok" id="soumettre" onclick="salle1Question1()">
+                   </td>
+               </tr> 
+                
+            </table>
+            <div id="divAffiche">
+            </div>
+            <script>
+                function salle1Question1(){
+                var affiche=document.getElementById("divAffiche");
+                var entrer=parseInt(document.getElementById("question").value);
+                var reponse = 5;
+                
+                    if (entrer == reponse) {
+                        var message1="bravo!! Vous avez trouvé la 1ére entrée du mot de passe.Continuez comme ca.";
+                        affiche.innerHTML=message1;
+                    } else {
+                        var validation = "false";
+                        while (validation == "false") {
+                           validation = "true"
+                       var message2="Ah non! désolé mauvaise réponse!veuillez réesayer";
+                        affiche.innerHTML=message2;
+                            }
+                    }
+                }
+            </script>
+        </form>
+    </body>
+</html>
