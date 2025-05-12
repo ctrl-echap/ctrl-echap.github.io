@@ -28,36 +28,80 @@
                 border: none;
                 border-radius: 8px;
             }
-           .commencer:hover, .instructions:hover {
+            
+            .commencer:hover, .instructions:hover {
                 background-color: #F2D2A5; 
-                color: white;
+                color: black;
                 padding: 12px 24px;
                 border: none;
                 border-radius: 8px;
                 cursor: pointer;
             }
             
-
-            
-             
         </style>
     </head> 
     
-    <body class="body_accueil"> 
+    <body class="body_accueil">
         <center>
-            <div style="position: fixed; top: 32%; width: 90%; margin: 5%">
+            <div>
+                <img src="https://ctrl-echap.github.io/l-evasion-de-l-arithmeticien/images/accueil.png" style="height: 100vh;">
+            </div>
+        </center> 
+        <center>
+            <div style="position: absolute; top: 30%; width: 90%; margin: 5%;">
                 <h1 class="titre">L'Évasion de l'arithméticien</h1>
 
                 <div class="boutons_accueil">
                     <a  href="chambre1vue1.html">
                         <button class="commencer">Commencer</button>
                     </a>
-                    <a  href="instructions.html">
-                        <button class="instructions" style="cursor: help;">?</button>
-                    </a>
+                    <button id="btnInstructions" class="instructions" style="cursor: help;">?</button>
                 </div>
             </div>
-                
         </center>
+        
+        <!--Boite d'instructions/introduction-->
+        <!--Source d'inspiration: https://www.w3schools.com/howto/howto_css_modals.asp-->
+        <div id="boiteInstructions" class="boiteArriere">
+          <div class="contenuPopup">
+            <span class="fermer" style="cursor: pointer;">&times;</span> 
+            <p>
+                <strong>Un ours</strong> est capturé par un gardien méchant… qui est aussi un arithméticien !
+                Pour s’échapper, l’ours doit passer par <strong>trois chambres</strong>, chacune contenant 
+                <strong>trois questions</strong> de mathématiques. Il y a donc <strong>9 problèmes en tout</strong> à résoudre.
+            </p>
+            <p>
+                Plus l’ours avance, plus les questions deviennent difficiles. Mais attention ! Le gardien a 
+                placé une <strong>bombe</strong> dans l’évasion. Elle explosera dans exactement <strong>une heure</strong>.
+                Il faut donc se dépêcher pour sortir à temps !
+            </p>
+            <p>
+                Le but du jeu est d’aider l’ours à s’échapper en répondant correctement aux questions.
+                Chaque bonne réponse vous permet d’avancer vers la porte suivante… jusqu’à la sortie.
+            </p>
+            <p>
+                Le gardien dit : <em>Bonne chance pour sortir en vie !</em> <strong>MUAH AH AH AH AHHHHHHHHHHHHHH !</strong>
+            </p>
+          </div>
+        </div>
+        
+        <script>
+            //Code pour afficher la boite d'instructions (sous forme "popup/modal")
+            //Récupère la boîte d'instructions
+            var instructions = document.getElementById("boiteInstructions")
+            //Trouve le bouton "?"
+            var btn = document.getElementById("btnInstructions")
+            //Associe le bouton à la fonction pour afficher la boite d'instructions
+            btn.onclick = function() {
+                instructions.style.display = "block"
+            }
+            
+            //Récupère le bouton qui ferme les instructions
+            var ferme = document.getElementsByClassName("fermer")[0]
+            //Si le bouton pour fermer est cliqué, la boite disparaît
+            ferme.onclick = function() {
+            instructions.style.display = "none";
+            }
+        </script>
     </body>
 </html>
