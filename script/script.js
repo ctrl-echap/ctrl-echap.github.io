@@ -1,15 +1,36 @@
-function salle1Question1(reponse1) {
-    console.log("Quelle  est valeur de x dans l'équation: ")
-    console.log("7x - 2 + 55x - 7 = 301")
-    reponse == 5
-    validation == false
-    while (validation == false) {
-        reponseInsere = parseFloat(prompt("Insérez le mot de passe:")
-        if (reponseInsere != reponse) {
-            console.log("Ah non! Le mot de passe inséré ne marche pas!")
-            validation == false
-        } else {
-            validation == true
+//Fonction question 1 : Ourson
+function salle1Question1(){
+    var affiche=document.getElementById("divAffiche");
+    var entrer=parseInt(document.getElementById("question").value);
+    var reponse = 5;
+    
+    if (entrer == reponse) {
+        var message1="Bravo!! Vous avez trouvé la 1ére entrée du mot de passe. Continuez comme ça!";
+        affiche.innerHTML=message1;
+    } else {
+        var validation = "false";
+        while (validation == "false") {
+            validation = "true"
+            var message2="Ah non! désolé mauvaise réponse! Veuillez réesayer";
+            affiche.innerHTML=message2;
         }
     }
+}
+ //Fonction question 3 : Peinture
+function salle4Question1(){
+    var affiche=document.getElementById("divaffiche10");
+    var entrer=parseInt(document.getElementById("question10").value);
+    var reponse = 4;
+    
+        if (entrer== reponse) {
+            var message1="bravo!! Vous avez trouvé la 3éme entrée du mot de passe.Continuez comme ca.";
+            affiche.innerHTML=message1;
+        } else {
+            var validation = "false";
+            while (validation == "false") {
+               validation = "true"
+           var message2="Ah non! désolé mauvaise réponse! veuillez réessayer";
+            affiche.innerHTML=message2;
+                }
+        }
 }
