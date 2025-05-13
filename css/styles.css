@@ -36,9 +36,11 @@ body {
     background-color: rgba(0,0,0,0.4); 
 }
 .contenuPopup {
+    width: 75%;
     background-color: #fef9e7;
     padding: 30px;
-    margin: 20px;
+    margin: auto;
+    margin-top: 20px;
     border-radius: 15px;
     font-family: 'Comic Sans MS', cursive, sans-serif;
     font-size: 18px;
@@ -50,7 +52,7 @@ body {
     color: #d35400;
 }
 
-/*Le bouton pour enlever la boîte d'instructions*/
+/*Le bouton pour enlever la boîte "popup"*/
 .fermer {
     font-size: 30px;
     transition: 0.3s;
@@ -64,7 +66,7 @@ body {
     display: none;
 }
 
-.fleche-suivante {
+.fleche-droite {
     position: absolute;
     bottom: 30px;
     right: 30px;
@@ -77,7 +79,25 @@ body {
     padding: 10px 16px;
     transition: background-color 0.3s ease;
 }
-.fleche-suivante:hover {
+.fleche-droite:hover {
+    background-color: #F2D2A5;
+    cursor: pointer;
+}
+
+.fleche-gauche {
+    position: absolute;
+    bottom: 30px;
+    left: 30px;
+    font-size: 40px;
+    text-decoration: none;
+    color: #333;
+    background-color: #fef9e7;
+    border: 2px solid #333;
+    border-radius: 50%;
+    padding: 10px 16px;
+    transition: background-color 0.3s ease;
+}
+.fleche-gauche:hover {
     background-color: #F2D2A5;
     cursor: pointer;
 }
