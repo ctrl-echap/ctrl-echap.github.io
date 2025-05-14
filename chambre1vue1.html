@@ -34,7 +34,7 @@
         </center>
         
         <!--Flèche pour changer de vue-->
-        <a href="verification1.html" class="fleche-droite">&#10145;</a>
+        <a href="chambre1vue2.html" class="fleche-droite">&#10145;</a>
         
         <!--Boite "popup"-->
         <div id="boite" class="boiteArriere">
@@ -43,47 +43,59 @@
             
             <!--Question 1: Ours en peluche-->
             <form id="question1" class="question">
-                <table border="6" align="center">
-                    <tr>
+                <div id = "tblQ1">
+                    <table border="6">
+                        <tr>
                         <td>
-                            <label for="question">Quelle  est valeur de x dans l'équation: <br>7x - 2 + 55x - 7 = 301</label>
-                            <br> <input id="question" type="text"><br>
-                            <input type="button" value="Valider" id="soumettre" onclick="salle1Question1()">
+                            <label for="questionOurs">Quelle  est valeur de x dans l'équation: <br>7x - 2 + 55x - 7 = 301</label>
+                            <br> <input id="questionOurs" type="text"> <br>
+                            <input type="button" value="Valider" class="valider" onclick="salle1Question1()">
                         </td>
                         </tr>
-                </table>
+                    </table>
+                </div>
                 
-                <div id="divAffiche">
+                <div id="divAfficheOurs">
                 </div>
             </form>
             
+            
+            
             <!--Question 2: Plante-->
             <form id="question2" class="question">
-             <table border="6" align="center">
-               <tr>
-                   <td>
-                   <label for="question20">Quelle  est valeur de x dans l'équation: <br>(X-2)/(5X+7)=7/52</label>
-                  <br> <input id="question20" type="text"><br>
-                  <input type="button" value="valider" id="soumettre" onclick="salle1Question2()">
-                   </td>
-                </tr>
-            </table>
-            <div id="divaffiche20">
-            </div>
+                <div id = "tblQ2">
+                    <table border="6">
+                        <tr>
+                        <td>
+                          <label for="questionPlante">Quelle  est valeur de x dans l'équation: <br>(X-2)/(5X+7)=7/52</label>
+                          <br> <input id="questionPlante" type="text"> <br>
+                          <input type="button" value="Valider" class="valider" onclick="salle1Question2()">
+                        </td>
+                        </tr>
+                    </table>
+                </div>
+                
+                <div id="divAffichePlante">
+                </div>
             </form>
+            
+            
             
             <!--Question 3: Peinture-->
             <form id="question3" class="question">
-                <table border="6" align="center">
-                    <tr>
+                <div id = "tblQ3">
+                    <table border="6">
+                        <tr>
                         <td>
-                            <label for="question-10"> Un ours peint un chef-d'oeuvre. Il commence à travailler à 8 heures le matin et travaille pendant 4 heures. L'ours prend une pause dîner pendant une heure. Enfin, il continue à peindre pendant 3 heures. À quelle heure aurait t'il finit la peinture? </label>
-                            <br> <input id="question-10" type="text"><br>
-                            <input type="button" value="Valider" id="soumettre" onclick="salle4Question1()">
+                            <label for="questionPeinture"> Un ours peint un chef-d'oeuvre. Il commence à travailler à 8 heures le matin et travaille pendant 4 heures. L'ours prend une pause dîner pendant une heure. Enfin, il continue à peindre pendant 3 heures. À quelle heure aurait t'il finit la peinture? </label>
+                            <br> <input id="questionPeinture" type="text"> <br>
+                            <input type="button" value="Valider" class="valider" onclick="salle1Question3()">
                         </td>
-                    </tr> 
-                </table>
-                <div id="divaffiche10">
+                        </tr> 
+                    </table>
+                </div>
+                
+                <div id="divAffichePeinture">
                 </div>
             </form>
             
@@ -106,18 +118,52 @@
             var q2 = document.getElementById("question2");
             var q3 = document.getElementById("question3");
             
+            //Tableaux de question
+            var tblQ1 = document.getElementById("tblQ1");
+            var tblQ2 = document.getElementById("tblQ2");
+            var tblQ3 = document.getElementById("tblQ3");
+            
+            // Espaces pour afficher les messages
+            var afficheOurs = document.getElementById("divAfficheOurs")
+            var affichePlante = document.getElementById("divAffichePlante")
+            var affichePeinture = document.getElementById("divAffichePeinture")
+            
             //Associe le bouton à la fonction pour afficher la boite d'instructions
             btn1.onclick = function(){
                 boite.style.display = "block"
                 q1.style.display = "block"
+                // Si la question de l'ours en peluche a déjà été répondue correctement
+                if (sessionStorage.getItem("questionOursFait") == "true") {
+                    tblQ1.style.display = "none"
+                    afficheOurs.innerHTML = "Bravo!! Vous avez trouvé la 1ère entrée du mot de passe ; reponse = 5 Continuez comme ça!"
+                } else {
+                    tblQ1.style.display = "block"
+                }
             }
+            
             btn2.onclick = function(){
                 boite.style.display = "block"
                 q2.style.display = "block"
+                // Si la question de la plante a déjà été répondue correctement
+                if (sessionStorage.getItem("questionPlanteFait") == "true") {
+                    tblQ2.style.display = "none"
+                    affichePlante.innerHTML = "Bravo!! Vous avez trouvé la 2ème entrée du mot de passe ; reponse=9 Continuez comme ça!"
+                } else {
+                    tblQ2.style.display = "block"
+                    
+                }
             }
+            
             btn3.onclick = function(){
                 boite.style.display = "block"
                 q3.style.display = "block"
+                // Si la question de la peinture a déjà été répondue correctement
+                if (sessionStorage.getItem("questionPeintureFait") == "true") {
+                    tblQ3.style.display = "none"
+                    affichePeinture.innerHTML = "Bravo!! Vous avez trouvé la 3ème entrée du mot de passe ;reponse=4 Continuez comme ça!"
+                } else {
+                    tblQ3.style.display = "block"
+                }
             }
             
             //Récupère le bouton qui ferme le "popup"
@@ -130,7 +176,9 @@
                 q2.style.display = "none";
                 q3.style.display = "none";
             }
+            
         </script>
+      
     </body>
     
 </html>
