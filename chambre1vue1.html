@@ -2,11 +2,8 @@
 <html>
     <head>
         <meta charset="utf-8">
-        <title>Chambre 1</title>
+        <title>Chambre 1 (vue 1)</title>
         <link rel="stylesheet" href="css/styles.css">
-        <link rel="preconnect" href="https://fonts.googleapis.com">
-        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-        <link href="https://fonts.googleapis.com/css2?family=Spicy+Rice&display=swap" rel="stylesheet">
         <script src="script/imageMapResizer.min.js"></script>
         <script src="script/script.js"></script>
         <style>
@@ -21,7 +18,7 @@
             <!-- Image d'arrière-plan avec des sections cliquables -->
             <div style="height: 100vh; overflow: hidden">
                 <!-- Image d'arrière-plan -->
-                <img src="images/chambre1vue1.png" style="height: 100vh;" usemap="#chambre1vue1-map">
+                <img src="https://assets.onecompiler.app/43a98jszu/43h3knddk/chambre1vue1.png" style="height: 100vh;" usemap="#chambre1vue1-map">
                 
                 <!-- Les sections cliquables sur l'image d'arrière-plan -->
                 <!-- Image Map générée par http://www.image-map.net/ -->
@@ -55,11 +52,10 @@
                     </table>
                 </div>
                 
+                <!--Élément div pour annoncer si la réponse entrée était bonne ou mauvaise-->
                 <div id="divAfficheOurs">
                 </div>
             </form>
-            
-            
             
             <!--Question 2: Plante-->
             <form id="question2" class="question">
@@ -79,15 +75,13 @@
                 </div>
             </form>
             
-            
-            
             <!--Question 3: Peinture-->
             <form id="question3" class="question">
                 <div id = "tblQ3">
                     <table border="6">
                         <tr>
                         <td>
-                            <label for="questionPeinture"> Un ours peint un chef-d'oeuvre. Il commence à travailler à 8 heures le matin et travaille pendant 4 heures. L'ours prend une pause dîner pendant une heure. Enfin, il continue à peindre pendant 3 heures. À quelle heure aurait t'il finit la peinture? </label>
+                            <label for="questionPeinture"> Un ours peint un chef-d'oeuvre. Il commence à travailler à 8 h le matin et travaille pendant 4 heures. L'ours prend une pause dîner pendant une heure. Enfin, il continue à peindre pendant 3 heures. À quelle heure aurait-il terminé sa peinture? Réponds en utilisant le système horaire de 24 heures.</label>
                             <br> <input id="questionPeinture" type="text"> <br>
                             <input type="button" value="Valider" class="valider" onclick="salle1Question3()">
                         </td>
@@ -112,13 +106,13 @@
             var btn1 = document.getElementById("btnQuestion1");
             var btn2 = document.getElementById("btnQuestion2");
             var btn3 = document.getElementById("btnQuestion3");
-            
+
             //Questions à afficher
             var q1 = document.getElementById("question1");
             var q2 = document.getElementById("question2");
             var q3 = document.getElementById("question3");
-            
-            //Tableaux de question
+
+            //Tableaux de questions
             var tblQ1 = document.getElementById("tblQ1");
             var tblQ2 = document.getElementById("tblQ2");
             var tblQ3 = document.getElementById("tblQ3");
@@ -128,14 +122,14 @@
             var affichePlante = document.getElementById("divAffichePlante")
             var affichePeinture = document.getElementById("divAffichePeinture")
             
-            //Associe le bouton à la fonction pour afficher la boite d'instructions
+            //Associe le bouton à la fonction pour afficher la boîte avec la question
             btn1.onclick = function(){
                 boite.style.display = "block"
                 q1.style.display = "block"
                 // Si la question de l'ours en peluche a déjà été répondue correctement
                 if (sessionStorage.getItem("questionOursFait") == "true") {
                     tblQ1.style.display = "none"
-                    afficheOurs.innerHTML = "Bravo!! Vous avez trouvé la 1ère entrée du mot de passe ; reponse = 5 Continuez comme ça!"
+                    afficheOurs.innerHTML = "🧸 = 5"
                 } else {
                     tblQ1.style.display = "block"
                 }
@@ -147,7 +141,7 @@
                 // Si la question de la plante a déjà été répondue correctement
                 if (sessionStorage.getItem("questionPlanteFait") == "true") {
                     tblQ2.style.display = "none"
-                    affichePlante.innerHTML = "Bravo!! Vous avez trouvé la 2ème entrée du mot de passe ; reponse=9 Continuez comme ça!"
+                    affichePlante.innerHTML = "🪴 = 9"
                 } else {
                     tblQ2.style.display = "block"
                     
@@ -160,12 +154,12 @@
                 // Si la question de la peinture a déjà été répondue correctement
                 if (sessionStorage.getItem("questionPeintureFait") == "true") {
                     tblQ3.style.display = "none"
-                    affichePeinture.innerHTML = "Bravo!! Vous avez trouvé la 3ème entrée du mot de passe ;reponse=4 Continuez comme ça!"
+                    affichePeinture.innerHTML = "🎨 = 16"
                 } else {
                     tblQ3.style.display = "block"
                 }
             }
-            
+
             //Récupère le bouton qui ferme le "popup"
             var ferme = document.getElementsByClassName("fermer")[0]
             //Si le bouton pour fermer est cliqué, la boite disparaît
