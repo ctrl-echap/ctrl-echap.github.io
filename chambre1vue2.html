@@ -2,16 +2,13 @@
 <html>
     <head>
         <meta charset="utf-8">
-        <title>Chambre 2</title>
+        <title>Chambre 1 (vue 2)</title>
         <link rel="stylesheet" href="css/styles.css">
-        <link rel="preconnect" href="https://fonts.googleapis.com">
-        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-        <link href="https://fonts.googleapis.com/css2?family=Spicy+Rice&display=swap" rel="stylesheet">
         <script src="script/imageMapResizer.min.js"></script>
         <script src="script/script.js"></script>
         <style>
-            a:hover {
-                background-color: #ffd9b3;
+            td {
+                padding: 15px;
             }
         </style>
     </head>
@@ -27,9 +24,9 @@
                 <!-- Image Map générée par http://www.image-map.net/ -->
                 <map name="chambre1vue2-map">
                     <area id="btnPapier" coords="770,549,845,531,879,548,894,622,797,651" shape="poly">
-                    <area id="btnQuestion1" coords="1698,361,1706,341,1761,363,1749,285,1772,249,1586,180,1510,297" shape="poly">
+                    <area id="btnQuestion5" coords="1698,361,1706,341,1761,363,1749,285,1772,249,1586,180,1510,297" shape="poly">
                     <area id="btnPorte" coords="83,1026,409,870,400,102,81,241" shape="poly">
-                    <area id="btnQuestion2" coords="1374,670,1370,765,1918,1014,1917,904" shape="poly">
+                    <area id="btnQuestion4" coords="1374,670,1370,765,1918,1014,1917,904" shape="poly">
                 </map>
             </div>
         </center>
@@ -41,45 +38,120 @@
         <div id="boite" class="boiteArriere">
           <div class="contenuPopup">
             <span class="fermer" style="cursor: pointer;">&times;</span>
+        
+            <!--Question 4 : Tiroir-->
+            <form id="question4" class="question">
+                <div id="tblQ4">
+                    <table border="6">
+                        <tr>
+                            <td>
+                                <label for="questionTiroir">Quelle  est valeur de x dans l'équation: <br>12 - 7 X 12 + 72 = x^2</label>
+                                <br> <input id="questionTiroir" type="text"><br>
+                                <input type="button" value="Valider" class="valider" onclick="salle2Question1()">
+                            </td>
+                        </tr> 
+                    </table>
+                </div>
+                
+                <div id="divAfficheTiroir">
+                </div>
+            </form>
             
-            <!--Question 1 : Cadre-->
-            <p id="question1" class="question">a</p>
-            <!--Question 2 : Tiroir-->
-            <p id="question2" class="question">b</p>
+            <!--Question 5 : Cadre-->
+            <form id="question5" class="question">
+                <div id="tblQ5">
+                    <table border="6">
+                        <tr>
+                            <td>
+                                <label for="questionCadre">Quelle  est valeur de x dans l'équation: <br>Une droite qui a l'équation f(x) = ax + b passe par les points (5, 8) et (-3, 0). Quel est l'aire du trapèze formé par l'origine, l'ordonnée à l'origine de f(x), le point (5, 8) et le point(5, 0)? Arrondis ta réponse vers l'unité près. </label>
+                                <br> <input id="questionCadre" type="text"><br>
+                                <input type="button" value="Valider" class="valider" onclick="salle2Question2()">
+                            </td>
+                        </tr> 
+                    </table>
+                </div>
+                
+                <div id="divAfficheCadre">
+                </div>
+            </form>
             
-            <p id="indice" class="question">c</p>
-            <p id="porte" class="question">d</p>
+            <!--Papier d'indices-->
+            <h1 id="indice" class="question">vous devez completer la serrure en orde</h1>
+            
+            <!--Serrure sur la porte de la première pièce-->
+            <form id="porte1" class="porte">
+                <div id="tblPorte1">
+                    <label for="echap1">🧸 +🪴 + 🎨 + 🗄️+ 🖼️ = </label>
+                    <input type="text" id="echap1"><br><br>
+                    <input type="button" value="Sortir de la salle" class="valider" onclick="validerSortie1()">
+                </div><br>
+                
+                <div id="divAffichePorte1">
+                </div>
+            </form>
+            
           </div>
         </div>
         
         <script>
             imageMapResize(); // Appel à la fonction qui permet de redimensionner les « image maps »
-            //Boite arrière pour le "popup"
+            
+            // Boite arrière pour le "popup"
             var boite = document.getElementById("boite")
             
-            //Trouve les boutons
-            var btn1 = document.getElementById("btnQuestion1")
-            var btn2 = document.getElementById("btnQuestion2")
+            // Trouve les boutons
+            var btn4 = document.getElementById("btnQuestion4")
+            var btn5 = document.getElementById("btnQuestion5")
             var btnIndice = document.getElementById("btnPapier")
             var btnPorte = document.getElementById("btnPorte")
             
-            //Questions à afficher
-            var q1 = document.getElementById("question1")
-            var q2 = document.getElementById("question2")
+            // Questions à afficher
+            var q4 = document.getElementById("question4")
+            var q5 = document.getElementById("question5")
             var contenuIndice = document.getElementById("indice")
+            var porte1 = document.getElementById("porte1")
             
-            //Associe le bouton à la fonction pour afficher la boite d'instructions
-            btn1.onclick = function(){
+            // Tableaux de questions
+            var tblQ4 = document.getElementById("tblQ4")
+            var tblQ5 = document.getElementById("tblQ5")
+            
+            // Espaces pour afficher les messages
+            var afficheTiroir = document.getElementById("divAfficheTiroir")
+            var afficheCadre = document.getElementById("divAfficheCadre")
+            
+            //Associe le bouton à la fonction pour afficher la boîte avec la question
+            btn4.onclick = function(){
                 boite.style.display = "block"
-                q1.style.display = "block"
+                q4.style.display = "block"
+                // Si la question du tiroir a déjà été répondue correctement
+                if (sessionStorage.getItem("questionTiroirFait") == "true") {
+                    tblQ4.style.display = "none"
+                    afficheTiroir.innerHTML = "🗄= 0"
+                } else {
+                    tblQ4.style.display = "block"
+                }
             }
-            btn2.onclick = function(){
+            
+            btn5.onclick = function(){
                 boite.style.display = "block"
-                q2.style.display = "block"
+                q5.style.display = "block"
+                // Si la question du cadre a déjà été répondue correctement
+                if (sessionStorage.getItem("questionCadreFait") == "true") {
+                    tblQ5.style.display = "none"
+                    afficheCadre.innerHTML = "🖼 = 28"
+                } else {
+                    tblQ5.style.display = "block"
+                }
             }
+            
             btnIndice.onclick = function(){
                 boite.style.display = "block"
                 contenuIndice.style.display = "block"
+            }
+            
+            btnPorte.onclick = function(){
+                boite.style.display = "block"
+                porte1.style.display = "block"
             }
             
             //Récupère le bouton qui ferme le "popup"
@@ -87,9 +159,11 @@
             //Si le bouton pour fermer est cliqué, la boite disparaît
             ferme.onclick = function() {
                 boite.style.display = "none";
-                q1.style.display = "none";
-                q2.style.display = "none";
-                contenuIndice.style.display = "none";
+                
+                q4.style.display = "none"
+                q5.style.display = "none"
+                contenuIndice.style.display = "none"
+                porte1.style.display = "none"
             }
         </script>
     </body>
