@@ -11,7 +11,7 @@ function salle1Question1() {
     // Vérifier si c'est la bonne réponse et changer le message en conséquence
     if (entree == 5) {
         // On affiche un message de félicitations pour avoir eu la bonne réponse ainsi qu'un indice. On mets en mémoire que la question est complétée et on la cache
-        message = "Bravo!! Vous avez trouvé la 1ère entrée du mot de passe. Continuez comme ça!";
+        message = "🧸 = 5";
         sessionStorage.setItem("questionOursFait", "true");
         tblQ1.style.display = "none";
     } else {
@@ -36,7 +36,7 @@ function salle1Question2(){
     // Vérifier si c'est la bonne réponse et changer le message en conséquence
     if (entree == 9) {
         // On affiche un message de félicitations pour avoir eu la bonne réponse ainsi qu'un indice. On mets en mémoire que la question est complétée et on la cache
-        message = "Bravo!! Vous avez trouvé la 2ème entrée du mot de passe. Continuez comme ça!";
+        message = "🪴 = 9";
         sessionStorage.setItem("questionPlanteFait", "true");
         tblQ2.style.display = "none";
     } else {
@@ -59,9 +59,9 @@ function salle1Question3(){
     var message = "";
     
     // Vérifier si c'est la bonne réponse et changer le message en conséquence
-    if (entree == 4) {
+    if (entree == 16) {
         // On affiche un message de félicitations pour avoir eu la bonne réponse ainsi qu'un indice. On mets en mémoire que la question est complétée et on la cache
-        message = "Bravo!! Vous avez trouvé la 3ème entrée du mot de passe. Continuez comme ça!";
+        message = "🎨 = 16";
         sessionStorage.setItem("questionPeintureFait", "true");
         tblQ3.style.display = "none";
     } else {
@@ -92,8 +92,8 @@ function salle1Question3(){
 //Fonction question 4 : Tiroir
 function salle2Question1(){
     // Chercher les données dans le formulaire
-    var affiche = document.getElementById("divAfficheTirroir");
-    var entree = parseInt(document.getElementById("questionTirroir").value);
+    var affiche = document.getElementById("divAfficheTiroir");
+    var entree = parseInt(document.getElementById("questionTiroir").value);
     var tblQ4 = document.getElementById("tblQ4");
     
     // Créer une variable pour le message à afficher dépendamment de la réponse entrée
@@ -102,8 +102,8 @@ function salle2Question1(){
     // Vérifier si c'est la bonne réponse et changer le message en conséquence
     if (entree == 0) {
         // On affiche un message de félicitations pour avoir eu la bonne réponse ainsi qu'un indice. On mets en mémoire que la question est complétée et on la cache
-        message = "Bravo!! Vous avez trouvé la 4ème entrée du mot de passe. Continuez comme ça!";
-        sessionStorage.setItem("questionTirroirFait", "true");
+        message = "🗄= 0";
+        sessionStorage.setItem("questionTiroirFait", "true");
         tblQ4.style.display = "none";
     } else {
         // On affiche un message de qui dit de réessayer si l'utilisateur a entré la mauvaise réponse
@@ -127,7 +127,7 @@ function salle2Question2(){
     // Vérifier si c'est la bonne réponse et changer le message en conséquence
     if (entree == 28) {
         // On affiche un message de félicitations pour avoir eu la bonne réponse ainsi qu'un indice. On mets en mémoire que la question est complétée et on la cache
-        message = "Bravo!! Vous avez trouvé la 4ème entrée du mot de passe. Continuez comme ça!";
+        message = "🖼 = 28";
         sessionStorage.setItem("questionCadreFait", "true");
         tblQ5.style.display = "none";
     } else {
@@ -137,4 +137,24 @@ function salle2Question2(){
     
     // On affiche le message sur la page web 
     affiche.innerHTML = message;
+}
+
+function validerSortie1(){
+    // Chercher les données dans le formulaire
+    var affiche = document.getElementById("divAffichePorte1");
+    var entree = parseInt(document.getElementById("echap1").value);
+    
+    // Créer une variable pour le message à afficher dépendamment de la réponse entrée
+    var message = "";
+    
+    // Vérifier si c'est la bonne réponse et changer le message en conséquence
+    if (entree == 58) {
+        // Aller à la prochaine salle
+        window.location.href = "chambre2vue1.html" // Source : https://www.w3schools.com/howto/howto_js_redirect_webpage.asp
+    } else {
+        // On affiche un message de qui dit de réessayer si l'utilisateur a entré la mauvaise réponse
+        message = "Ah non! désolé mauvaise réponse! Veuillez réesayer";
+        // On affiche le message sur la page web 
+        affiche.innerHTML = message;
+    }
 }
