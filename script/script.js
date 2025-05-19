@@ -1,6 +1,17 @@
+// Source : https://support.syncfusion.com/kb/article/18651/how-to-preventing-form-submission-on-enter-key-press-in-blazor?utm_source=chatgpt.com
+// Ce bout do code permet d'empêcher le rechargement de la page quand on clique sur la touche "Entrer" en essayant de valider une question
+document.addEventListener('keydown', function (event) {
+    if (event.key === 'Enter') {
+        event.preventDefault();
+    }
+});
+
 // Fonction pour recommencer le jeu (pendant le jeu)
 function recommencer() {
+    // Confirmer s'ils veulent vraiment recommencer
     var recommence = confirm("Êtes-vous sûr de vouloir recommencer le jeu ?")
+    
+    // S'ils veulent, recommencer le jeu
     if (recommence === true) {
         sessionStorage.clear();
         window.location.href = "index.html"; // Source : https://www.w3schools.com/howto/howto_js_redirect_webpage.asp 
@@ -31,7 +42,7 @@ function salle1Question1() {
         tblQ1.style.display = "none";
     } else {
         // On affiche un message de qui dit de réessayer si l'utilisateur a entré la mauvaise réponse
-        message = "Ah non! désolé mauvaise réponse! Veuillez réessayer";
+        message = "Ah non! C'est la mauvaise réponse! Veuillez réessayer";
     }
         
     // On affiche le message sur la page web 
@@ -56,7 +67,7 @@ function salle1Question2(){
         tblQ2.style.display = "none";
     } else {
         // On affiche un message de qui dit de réessayer si l'utilisateur a entré la mauvaise réponse
-        message = "Ah non! désolé mauvaise réponse! Veuillez réessayer";
+        message = "Ah non! C'est la mauvaise réponse! Veuillez réessayer";
     }
     
     // On affiche le message sur la page web 
@@ -81,7 +92,7 @@ function salle1Question3(){
         tblQ3.style.display = "none";
     } else {
         // On affiche un message de qui dit de réessayer si l'utilisateur a entré la mauvaise réponse
-        message = "Ah non! désolé mauvaise réponse! Veuillez réessayer";
+        message = "Ah non! C'est la mauvaise réponse! Veuillez réessayer";
     }
     
     // On affiche le message sur la page web 
@@ -106,7 +117,7 @@ function salle2Question1(){
         tblQ4.style.display = "none";
     } else {
         // On affiche un message de qui dit de réessayer si l'utilisateur a entré la mauvaise réponse
-        message = "Ah non! désolé mauvaise réponse! Veuillez réessayer";
+        message = "Ah non! C'est la mauvaise réponse! Veuillez réessayer";
     }
     
     // On affiche le message sur la page web 
@@ -131,7 +142,7 @@ function salle2Question2(){
         tblQ5.style.display = "none";
     } else {
         // On affiche un message de qui dit de réessayer si l'utilisateur a entré la mauvaise réponse
-        message = "Ah non! désolé mauvaise réponse! Veuillez réessayer";
+        message = "Ah non! C'est la mauvaise réponse! Veuillez réessayer";
     }
     
     // On affiche le message sur la page web 
@@ -156,7 +167,7 @@ function salle2Question3(){
         tblQ6.style.display = "none";
     } else {
         // On affiche un message de qui dit de réessayer si l'utilisateur a entré la mauvaise réponse
-        message = "Ah non! désolé mauvaise réponse! Veuillez réessayer";
+        message = "Ah non! C'est la mauvaise réponse! Veuillez réessayer";
     }
     
     // On affiche le message sur la page web 
@@ -189,7 +200,7 @@ function validerSortie1(){
         sessionStorage.setItem("porte1Fait", "true");
     } else {
         // On affiche un message de qui dit de réessayer si l'utilisateur a entré la mauvaise réponse
-        message = "Ah non! désolé mauvaise réponse! Veuillez réessayer";
+        message = "Ah non! C'est la mauvaise réponse! Veuillez réessayer";
     }
     
     // On affiche le message à l'écran
@@ -214,7 +225,7 @@ function salle3Question1(){
         tblQ7.style.display = "none";
     } else {
         // On affiche un message de qui dit de réessayer si l'utilisateur a entré la mauvaise réponse
-        message = "Ah non! désolé mauvaise réponse! Veuillez réessayer";
+        message = "Ah non! C'est la mauvaise réponse! Veuillez réessayer";
     }
     
     // On affiche le message sur la page web 
@@ -240,7 +251,7 @@ function salle3Question2(){
 
     } else {
         // On affiche un message de qui dit de réessayer si l'utilisateur a entré la mauvaise réponse
-        message = "Ah non! désolé mauvaise réponse! Veuillez réessayer";
+        message = "Ah non! C'est la mauvaise réponse! Veuillez réessayer";
     }
     
     // On affiche le message sur la page web 
@@ -266,7 +277,7 @@ function salle3Question3(){
 
     } else {
         // On affiche un message de qui dit de réessayer si l'utilisateur a entré la mauvaise réponse
-        message = "Ah non! désolé mauvaise réponse! Veuillez réessayer";
+        message = "Ah non! C'est la mauvaise réponse! Veuillez réessayer";
     }
     
     // On affiche le message sur la page web 
@@ -292,7 +303,7 @@ function salle4Question1(){
 
     } else {
         // On affiche un message de qui dit de réessayer si l'utilisateur a entré la mauvaise réponse
-        message = "Ah non! désolé mauvaise réponse! Veuillez réessayer";
+        message = "Ah non! C'est la mauvaise réponse! Veuillez réessayer";
     }
     
     // On affiche le message sur la page web 
@@ -317,7 +328,7 @@ function salle4Question2(){
         tblQ11.style.display = "none";
     } else {
         // On affiche un message de qui dit de réessayer si l'utilisateur a entré la mauvaise réponse
-        message = "Ah non! désolé mauvaise réponse! Veuillez réessayer";
+        message = "Ah non! C'est la mauvaise réponse! Veuillez réessayer";
     }
     
     // On affiche le message sur la page web 
@@ -342,7 +353,7 @@ function salle4Question3(){
         tblQ12.style.display = "none";
     } else {
         // On affiche un message de qui dit de réessayer si l'utilisateur a entré la mauvaise réponse
-        message = "Ah non! désolé mauvaise réponse! Veuillez réessayer";
+        message = "Ah non! C'est la mauvaise réponse! Veuillez réessayer";
     }
     
     // On affiche le message sur la page web 
@@ -368,7 +379,7 @@ function salle4Question4(){
 
     } else {
         // On affiche un message de qui dit de réessayer si l'utilisateur a entré la mauvaise réponse
-        message = "Ah non! désolé mauvaise réponse! Veuillez réessayer";
+        message = "Ah non! C'est la mauvaise réponse! Veuillez réessayer";
     }
     
     // On affiche le message sur la page web 
@@ -402,7 +413,7 @@ function validerSortie2(){
         sessionStorage.setItem("porte2Fait", "true");
     } else {
         // On affiche un message de qui dit de réessayer si l'utilisateur a entré la mauvaise réponse
-        message = "Ah non! désolé mauvaise réponse! Veuillez réessayer";
+        message = "Ah non! C'est la mauvaise réponse! Veuillez réessayer";
     }
     
     // On affiche le message à l'écran
