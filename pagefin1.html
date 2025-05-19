@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Félicitations au Gagnant</title>
+        <link rel="stylesheet" href="css/styles.css">
+        <script src="script/script.js"></script>
+        <style>
+            body {
+              margin: 0;
+              padding: 0;
+              font-family: Arial, sans-serif;
+              background: url('https://bestanimations.com/media/fireworks/1119870824colorful-fan-firework-gif.gif') no-repeat center center fixed;
+              background-size: cover;
+              height: 100vh;
+              display: flex;
+              flex-direction: column;
+              justify-content: center;
+              align-items: center;
+              color: white;
+              text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.7);
+            }
+        
+            h1 {
+              font-size: 3rem;
+              text-align: center;
+              margin-bottom: 20px;
+            }
+        
+            .gif {
+              width: 200px;
+              height: auto;
+            }
+        </style>
+    </head>
+    
+    <body onload="tempsPourEchapper()">
+        <h1>Félicitations au Gagnant !</h1>
+        <img src="https://media.tenor.com/R_Q4qZqABSwAAAAM/dance-dancing.gif" alt="Dancing Bear" class="gif" style="border-radius: 10px;"><br>
+        <h2>15/15 questions répondues</h2><br>
+        <h2 id="temps"></h2><br>
+        
+        <div class="recommence2" onclick="recommencer2()">
+            Recommencer
+        </div>
+        
+        <script>
+            function tempsPourEchapper() {
+                // Variable pour stocker le montant de secondes qui restait dans le jeu
+                var secondesRestantes = parseInt(sessionStorage.getItem("remainingTime"))
+                
+                // Variable pour le temps écoulé dans le jeu
+                var secondesÉcoulées = 1800 - secondesRestantes
+                
+                // Trouver le nombre de minutes et de secondes que ça a pris pour échapper
+                var minutes = Math.floor(secondesÉcoulées / 60);
+                var secondes = secondesÉcoulées % 60
+                
+                // Afficher le résultat à l'écran
+                var afficheTemps = document.getElementById("temps")
+                afficheTemps.innerHTML = "Vous avez échappé en " + minutes + " minutes et " + secondes + " secondes" 
+            }
+        </script>
+        
+    </body>
+</html>
