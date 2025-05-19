@@ -2,30 +2,38 @@
 <html>
     <head>
         <meta charset="utf-8">
-        <title>Chambre 1 (vue 2)</title>
+        <title>Chambre 2</title>
         <link rel="stylesheet" href="css/styles.css">
         <script src="script/imageMapResizer.min.js"></script>
         <script src="script/script.js"></script>
-        <style>
-            td {
-                padding: 15px;
-            }
-        </style>
+        <script src="script/minuterie.js"></script>
+        <!-- Source pour la ligne de code suivante : https://www.mathjax.org/#gettingstarted -->
+        <!-- Ce bout de code permet d'afficher les expressions mathématiques de façon plus lisible et professionnelle lorsqu'elles sont encadrer par \(...\)  -->
+        <script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
     </head>
     
-    <body style="background-color: #F6AD89">
+    <body style="background-color: #F6AD89;">
+        
+        <!--Le minuteur-->
+        <div id="game-timer" class="minuterie">00:00</div>
+        
+        <!--Bouton pour recommencer le jeu-->
+        <div class="recommence" onclick="recommencer()">
+            <img src="https://img.icons8.com/ios_filled/512/restart.png" style="object-fit: contain; height: 15px; width: 15px;">
+        </div>
+        
         <center>
             <!-- Image d'arrière-plan avec des sections cliquables -->
             <div style="height: 100vh; overflow: hidden">
                 <!-- Image d'arrière-plan -->
-                <img src="images/chambre1vue2.png" style="height: 100vh;" usemap="#chambre1vue2-map">
+                <img src="https://assets.onecompiler.app/43a98jszu/43h3knddk/chambre1vue2.png" style="height: 100vh;" usemap="#chambre1vue2-map">
                 
                 <!-- Les sections cliquables sur l'image d'arrière-plan -->
                 <!-- Image Map générée par http://www.image-map.net/ -->
                 <map name="chambre1vue2-map">
-                    <area id="btnPapier" coords="770,549,845,531,879,548,894,622,797,651" shape="poly">
+                    <area id="btnQuestion6" coords="770,549,845,531,879,548,894,622,797,651" shape="poly">
                     <area id="btnQuestion5" coords="1698,361,1706,341,1761,363,1749,285,1772,249,1586,180,1510,297" shape="poly">
-                    <area id="btnPorte" coords="83,1026,409,870,400,102,81,241" shape="poly">
+                    <area id="btnPorte1" coords="83,1026,409,870,400,102,81,241" shape="poly">
                     <area id="btnQuestion4" coords="1374,670,1370,765,1918,1014,1917,904" shape="poly">
                 </map>
             </div>
@@ -33,6 +41,8 @@
          
         <!--Flèche pour changer de vue-->
         <a href="chambre1vue1.html" class="fleche-gauche">&#11013;</a>
+        <!--Flèche temporaire-->
+        <a href="chambre2vue1.html" class="fleche-droite">&#11013;</a>
           
         <!--Boite "popup"-->
         <div id="boite" class="boiteArriere">
@@ -45,7 +55,7 @@
                     <table border="6">
                         <tr>
                             <td>
-                                <label for="questionTiroir">Quelle  est valeur de x dans l'équation: <br>12 - 7 X 12 + 72 = x^2</label>
+                                <label for="questionTiroir">Quelle  est valeur de \(x\) dans l'équation: <br>\(12 - 7 \times 12 + 72 = x^2\)</label>
                                 <br> <input id="questionTiroir" type="text"><br>
                                 <input type="button" value="Valider" class="valider" onclick="salle2Question1()">
                             </td>
@@ -53,7 +63,7 @@
                     </table>
                 </div>
                 
-                <div id="divAfficheTiroir">
+                <div id="divAfficheTiroir" style="margin-top: 10px;">
                 </div>
             </form>
             
@@ -63,7 +73,7 @@
                     <table border="6">
                         <tr>
                             <td>
-                                <label for="questionCadre">Quelle  est valeur de x dans l'équation: <br>Une droite qui a l'équation f(x) = ax + b passe par les points (5, 8) et (-3, 0). Quel est l'aire du trapèze formé par l'origine, l'ordonnée à l'origine de f(x), le point (5, 8) et le point(5, 0)? Arrondis ta réponse vers l'unité près. </label>
+                                <label for="questionCadre">La droite d’équation \(f(x)\) = ax + b passe par les points (5, 8) et (-3, 0). Quelle est l’aire du trapèze formé par les quatre points suivants : l’origine (0, 0), l'ordonnée à l'origine de \(f(x)\), le point (5, 8) et le point (5, 0) ? Donne une réponse arrondie à l’unité près. </label>
                                 <br> <input id="questionCadre" type="text"><br>
                                 <input type="button" value="Valider" class="valider" onclick="salle2Question2()">
                             </td>
@@ -71,18 +81,33 @@
                     </table>
                 </div>
                 
-                <div id="divAfficheCadre">
+                <div id="divAfficheCadre" style="margin-top: 10px;">
                 </div>
             </form>
             
-            <!--Papier d'indices-->
-            <h1 id="indice" class="question">vous devez completer la serrure en orde</h1>
+            <!--Question 6 : Papier-->
+            <form id="question6" class="question">
+                <div id="tblQ6">
+                    <table border="6">
+                        <tr>
+                            <td>
+                                <label for="questionPapier">Si \(3x + 6y = 30\) et \(x + y = 8\), quelle est la valeur de \(x - y\) ?</label>
+                                <br> <input id="questionPapier" type="text"><br>
+                                <input type="button" value="Valider" class="valider" onclick="salle2Question3()">
+                            </td>
+                        </tr> 
+                    </table>
+                </div>
+                
+                <div id="divAffichePapier" style="margin-top: 10px;">
+                </div>
+            </form>
             
             <!--Serrure sur la porte de la première pièce-->
             <form id="porte1" class="porte">
                 <div id="tblPorte1">
-                    <label for="echap1">🧸 +🪴 + 🎨 + 🗄️+ 🖼️ = </label>
-                    <input type="text" id="echap1"><br><br>
+                    <label for="echap1">🧸 + 🪴 + 🎨 + 🗃️ + 📈 + 📄 = </label>
+                    <input type="text" id="echap1" size="4"><br><br>
                     <input type="button" value="Sortir de la salle" class="valider" onclick="validerSortie1()">
                 </div><br>
                 
@@ -102,52 +127,65 @@
             // Trouve les boutons
             var btn4 = document.getElementById("btnQuestion4")
             var btn5 = document.getElementById("btnQuestion5")
-            var btnIndice = document.getElementById("btnPapier")
-            var btnPorte = document.getElementById("btnPorte")
+            var btn6 = document.getElementById("btnQuestion6")
+            var btnPorte = document.getElementById("btnPorte1")
             
             // Questions à afficher
             var q4 = document.getElementById("question4")
             var q5 = document.getElementById("question5")
-            var contenuIndice = document.getElementById("indice")
+            var q6 = document.getElementById("question6")
             var porte1 = document.getElementById("porte1")
             
             // Tableaux de questions
             var tblQ4 = document.getElementById("tblQ4")
             var tblQ5 = document.getElementById("tblQ5")
+            var tblQ6 = document.getElementById("tblQ6")
             
             // Espaces pour afficher les messages
             var afficheTiroir = document.getElementById("divAfficheTiroir")
             var afficheCadre = document.getElementById("divAfficheCadre")
+            var affichePapier = document.getElementById("divAffichePapier")
             
             //Associe le bouton à la fonction pour afficher la boîte avec la question
             btn4.onclick = function(){
                 boite.style.display = "block"
                 q4.style.display = "block"
+               
                 // Si la question du tiroir a déjà été répondue correctement
                 if (sessionStorage.getItem("questionTiroirFait") == "true") {
                     tblQ4.style.display = "none"
-                    afficheTiroir.innerHTML = "🗄= 0"
+                    afficheTiroir.innerHTML = "🗃️ = 0"
                 } else {
                     tblQ4.style.display = "block"
                 }
             }
             
             btn5.onclick = function(){
-                boite.style.display = "block"
-                q5.style.display = "block"
+            boite.style.display = "block"
+            q5.style.display = "block"
+               
                 // Si la question du cadre a déjà été répondue correctement
                 if (sessionStorage.getItem("questionCadreFait") == "true") {
                     tblQ5.style.display = "none"
-                    afficheCadre.innerHTML = "🖼 = 28"
+                    afficheCadre.innerHTML = "📈 = 28"
                 } else {
                     tblQ5.style.display = "block"
                 }
             }
             
-            btnIndice.onclick = function(){
+            
+            btn6.onclick = function(){
                 boite.style.display = "block"
-                contenuIndice.style.display = "block"
+                q6.style.display = "block"
+                
+                if (sessionStorage.getItem("questionPapierFait") == "true") {
+                    tblQ6.style.display = "none"
+                     affichePapier.innerHTML = "📄 = 4"
+                } else {
+                    tblQ6.style.display = "block"
+                }
             }
+    
             
             btnPorte.onclick = function(){
                 boite.style.display = "block"
@@ -162,9 +200,13 @@
                 
                 q4.style.display = "none"
                 q5.style.display = "none"
-                contenuIndice.style.display = "none"
+                q6.style.display = "none"
                 porte1.style.display = "none"
             }
+
+            // Appel à la fonction qui commence la minuterie
+            startTimer();
+            
         </script>
     </body>
     
