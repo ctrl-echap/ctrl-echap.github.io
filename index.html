@@ -1,6 +1,11 @@
 <!DOCTYPE html>
 <!--Auteur : ctrl + échap-->
 <!--Cote de cours : ICS3U-->
+<!--Sources utilisés à travers le code complet
+    1. Pour le sessionStorage : https://www.w3schools.com/jsref/prop_win_sessionstorage.asp
+    2. Pour changer le style (CSS) dans le Javascript (ex: boite.style.display = "none";) : https://www.w3schools.com/js/js_htmldom_css.asp
+    3. Pour l'association aux fonctions en utilisant la propriété 'onclick' (ex: objet.onclick = function() {...}) : https://www.w3schools.com/jsref/event_onclick.asp
+-->
 <html>
     <head>
         <meta charset="utf-8">
@@ -44,23 +49,19 @@
     <body class="body_accueil">
         <center>
             <div>
-                <img src="images/accueil.png" style="height: 100vh;">
+                <img src="https://ctrl-echap.github.io/images/accueil.png" style="height: 100vh;">
             </div>
-        </center> 
-        <center>
+            
             <div style="position: absolute; top: 30%; width: 90%; margin: 5%;">
                 <h1 class="titre">L'Évasion de l'arithméticien</h1>
 
-                <div class="boutons_accueil">
-                    <a  href="chambre1vue1.html">
-                        <button class="commencer">Commencer</button>
-                    </a>
-                    <button id="btnInstructions" class="instructions" style="cursor: help;">?</button>
-                </div>
+            <div class="boutons_accueil">
+                <button class="commencer" onclick="commencerJeu()">Commencer</button>
+                <button id="btnInstructions" class="instructions" style="cursor: help;">?</button>
             </div>
         </center>
         
-        <!--Boite d'instructions/introduction-->
+        <!--Boite d'instructioction/introduction-->
         <!--Source d'inspiration: https://www.w3schools.com/howto/howto_css_modals.asp-->
         <div id="boiteInstructions" class="boiteArriere">
           <div class="contenuPopup">
@@ -72,13 +73,13 @@
             </p>
             <p>
                 Plus l’ours avance, plus les questions deviennent difficiles. Mais attention ! Le gardien a 
-                placé une <strong>bombe</strong> dans l’évasion. Elle explosera dans exactement <strong>une heure</strong>.
+                placé une <strong>bombe</strong> dans l’évasion. Elle <strong>explosera</strong> dans exactement <strong>une heure</strong>.
                 Il faut donc se dépêcher pour sortir à temps !<p>pour acceder a la porte suivante,il faut insérer les entrées dans<b> le bon ordre.</b>
             </p>
             <p>
                 Le but du jeu est d’aider l’ours à s’échapper en répondant correctement aux questions.
                 Chaque bonne réponse vous permet d’avancer vers la porte suivante… jusqu’à la sortie.
-            </p>
+            </p><br><i>tu dois resoudre <strong>5 enigmes</strong> pour atteindre la piéce suivante par la porte</i>
             <p>
                 Le gardien dit : <em>Bonne chance pour sortir en vie !</em> <strong>MUAH AH AH AH AHHHHHHHHHHHHHH !</strong>
             </p>
@@ -89,7 +90,7 @@
             //Code pour afficher la boite d'instructions (sous forme "popup/modal")
             //Récupère la boîte d'instructions
             var instructions = document.getElementById("boiteInstructions")
-            //Trouve le bouton "?"
+            //Trouve le bouton « ? »
             var btn = document.getElementById("btnInstructions")
             //Associe le bouton à la fonction pour afficher la boite d'instructions
             btn.onclick = function() {
@@ -98,9 +99,15 @@
             
             //Récupère le bouton qui ferme les instructions
             var ferme = document.getElementsByClassName("fermer")[0]
+            
             //Si le bouton pour fermer est cliqué, la boite disparaît
             ferme.onclick = function() {
-            instructions.style.display = "none";
+                instructions.style.display = "none";
+            }
+            
+            function commencerJeu() {
+                sessionStorage.setItem("remainingTime", 1800); // 30 minutes en secondes
+                window.location.href = "chambre1vue1.html"; // Source : https://www.w3schools.com/howto/howto_js_redirect_webpage.asp
             }
         </script>
     </body>
