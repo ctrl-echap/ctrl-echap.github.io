@@ -1,1 +1,244 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8">
+        <title>Cuisine 2</title>
+        <link rel="stylesheet" href="css/styles.css">
+        <script src="script/imageMapResizer.min.js"></script>
+        <script src="script/script.js"></script>
+        <script src="script/minuterie.js"></script>
+        <!-- Source pour la ligne de code suivante : https://www.mathjax.org/#gettingstarted -->
+        <!-- Ce bout de code permet d'afficher les expressions mathématiques de façon plus lisible et professionnelle lorsqu'elles sont encadrer par \(...\)  -->
+        <script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+    </head>
+    
+    <body style="background-color: #f0ce84;">
+        
+        <!--Le minuteur-->
+        <div id="game-timer" class="minuterie">00:00</div>
+        
+        <!--Bouton pour recommencer le jeu-->
+        <div class="recommence" onclick="recommencer()">
+            <img src="https://img.icons8.com/ios_filled/512/restart.png" style="object-fit: contain; height: 15px; width: 15px;">
+        </div>
+        
+        <center>
+            <!-- Image d'arrière-plan avec des sections cliquables -->
+            <div style="height: 100vh; overflow: hidden">
+                <!-- Image d'arrière-plan -->
+                <img src="https://assets.onecompiler.app/43a98jszu/43h3knddk/chambre2vue2.png" style="height: 100vh;" usemap="#chambre2vue2-map">
+                
+                <!-- Les sections cliquables sur l'image d'arrière-plan -->
+                <!-- Image Map générée par http://www.image-map.net/ -->
+                <map name="chambre2vue2-map">
+                    <area id="btnQuestion13" coords="386,158,386,264,386,314,392,356,392,411,591,322,592,222,594,157,591,76" shape="poly">
+                    <area id="btnQuestion12" coords="606,374,643,367,684,365,727,372,727,432,704,441,707,452,628,452,625,439,606,435" shape="poly">
+                    <area id="btnQuestion11" coords="902,428,906,499,883,507,883,519,804,519,804,507,784,499,786,428,821,422,862,422" shape="poly">
+                    <area id="btnQuestion10" coords="977,424,977,493,996,502,996,511,1074,511,1073,503,1097,493,1095,425,1064,415,1008,415,991,418" shape="poly">
+                    <area id="btnPorte2" coords="1,233,213,136,216,788,4,884" shape="poly">
+                </map>
+            </div>
+        </center>
+        
+        <!--Flèche pour changer de vue-->
+        <a href="chambre2vue1.html" class="fleche-gauche">&#11013;</a>
+        
+        <!--Boite "popup"-->
+        <div id="boite" class="boiteArriere">
+          <div class="contenuPopup">
+            <span class="fermer" style="cursor: pointer;">&times;</span> 
+            
+            <!--Question 10: Bol #1-->
+            <form id="question10" class="question">
+                <div id = "tblQ10">
+                    <table border="6">
+                        <tr>
+                            <td>
+                                <label for="questionBolUn"> Trouve la somme des valeurs de \(x\) dans l'équation: \(2x^2 - 8x + 7 = 1\) </label>
+                                <br> <input id="questionBolUn" type="text"> <br>
+                                <input type="button" value="Valider" class="valider" onclick="salle4Question1()">
+                            </td>
+                        </tr> 
+                    </table>
+                </div>
+                
+                <div id="divAfficheBolUn" style="margin-top: 10px;">
+                </div>
+            </form>
+            
+            <!--Question 11: Bol #2-->
+            <form id="question11" class="question">
+                <div id = "tblQ11">
+                    <table border="6">
+                        <tr>
+                            <td>
+                                <label for="questionBolDeux"> Quelle est la valeur de l'expression \(12 + 17 \times 3 \times 2^2\) </label>
+                                <br> <input id="questionBolDeux" type="text"> <br>
+                                <input type="button" value="Valider" class="valider" onclick="salle4Question2()">
+                            </td>
+                        </tr> 
+                    </table>
+                </div>
+                
+                <div id="divAfficheBolDeux" style="margin-top: 10px;">
+                </div>
+            </form>
+            
+            <!--Question 12: Bol #3-->
+            <form id="question12" class="question">
+                <div id = "tblQ12">
+                    <table border="6">
+                        <tr>
+                            <td>
+                                <label for="questionBolTrois"> Quelle est la valeur de \(45 \times \sqrt{2025}\) ? </label>
+                                <br> <input id="questionBolTrois" type="text"> <br>
+                                <input type="button" value="Valider" class="valider" onclick="salle4Question3()">
+                            </td>
+                        </tr> 
+                    </table>
+                </div>
+                
+                <div id="divAfficheBolTrois" style="margin-top: 10px;">
+                </div>
+            </form>
+            
+            <!--Question 13: L'affiche-->
+            <form id="question13" class="question">
+                <div id = "tblQ13">
+                    <table border="6">
+                        <tr>
+                            <td>
+                                <label for="questionAffiche"> Quel est le périmètre d'un carré qui a une aire de 2025 \(u^2\) ? </label>
+                                <br> <input id="questionAffiche" type="text"> <br>
+                                <input type="button" value="Valider" class="valider" onclick="salle4Question4()">
+                            </td>
+                        </tr> 
+                    </table>
+                </div>
+                
+                <div id="divAfficheAffiche" style="margin-top: 10px;">
+                </div>
+            </form>
+            
+            <!--Serrure sur la porte de la première pièce-->
+            <form id="porte2" class="porte">
+                <div id="tblPorte2">
+                    <label for="echap2">\(🥖 \div (🥧 + 🥄) + 🍬 \div \sqrt{(🍓 - 🍪)} - 🍚 = \)</label>
+                    <input type="text" id="echap2" size="4"><br><br>
+                    <input type="button" value="Sortir de la salle" class="valider" onclick="validerSortie2()">
+                </div><br>
+                
+                <div id="divAffichePorte2">
+                </div>
+            </form>
+            
+          </div>
+        </div>
+        
+        <script>
+            imageMapResize(); // Appel à la fonction qui permet de redimensionner les « image maps »
+            
+            //Boite arrière pour le "popup"
+            var boite = document.getElementById("boite");
+            
+            //Trouve les boutons
+            var btn10 = document.getElementById("btnQuestion10");
+            var btn11 = document.getElementById("btnQuestion11");
+            var btn12 = document.getElementById("btnQuestion12");
+            var btn13 = document.getElementById("btnQuestion13");
+            var btnPorte2 = document.getElementById("btnPorte2");
 
+            //Questions à afficher
+            var q10 = document.getElementById("question10");
+            var q11 = document.getElementById("question11");
+            var q12 = document.getElementById("question12");
+            var q13 = document.getElementById("question13");
+            var porte2 = document.getElementById("porte2");
+
+            //Tableaux de questions
+            var tblQ10 = document.getElementById("tblQ10");
+            var tblQ11 = document.getElementById("tblQ11");
+            var tblQ12 = document.getElementById("tblQ12");
+            var tblQ13 = document.getElementById("tblQ13");
+
+            // Espaces pour afficher les messages
+            var afficheBol1 = document.getElementById("divAfficheBolUn")
+            var afficheBol2 = document.getElementById("divAfficheBolDeux")
+            var afficheBol3 = document.getElementById("divAfficheBolTrois")
+            var afficheAffiche = document.getElementById("divAfficheAffiche")
+
+            //Associe le bouton à la fonction pour afficher la boîte avec la question
+            btn10.onclick = function(){
+                boite.style.display = "block"
+                q10.style.display = "block"
+                // Si la question du bol #1 a déjà été répondue correctement
+                if (sessionStorage.getItem("questionBol1Fait") == "true") {
+                    tblQ10.style.display = "none"
+                    afficheBol1.innerHTML = "🍚 = 4"
+                } else {
+                    tblQ10.style.display = "block"
+                }
+            }
+            
+            btn11.onclick = function(){
+                boite.style.display = "block"
+                q11.style.display = "block"
+                // Si la question du bol #2 a déjà été répondue correctement
+                if (sessionStorage.getItem("questionBol2Fait") == "true") {
+                    tblQ11.style.display = "none"
+                    afficheBol2.innerHTML = "🍓 = 216"
+                } else {
+                    tblQ11.style.display = "block"
+                }
+            }
+            
+            btn12.onclick = function(){
+                boite.style.display = "block"
+                q12.style.display = "block"
+                // Si la question du bol #3 a déjà été répondue correctement
+                if (sessionStorage.getItem("questionBol3Fait") == "true") {
+                    tblQ12.style.display = "none"
+                    afficheBol3.innerHTML = "🥖 = 2025"
+                } else {
+                    tblQ12.style.display = "block"
+                }
+            }
+            
+            btn13.onclick = function(){
+                boite.style.display = "block"
+                q13.style.display = "block"
+                // Si la question de l'affiche a déjà été répondue correctement
+                if (sessionStorage.getItem("questionAfficheFait") == "true") {
+                    tblQ13.style.display = "none"
+                    afficheAffiche.innerHTML = "🍪 = 180"
+                } else {
+                    tblQ13.style.display = "block"
+                }
+            }
+            
+            btnPorte2.onclick = function(){
+                boite.style.display = "block"
+                porte2.style.display = "block"
+            }
+            
+            //Récupère le bouton qui ferme le "popup"
+            var ferme = document.getElementsByClassName("fermer")[0]
+            //Si le bouton pour fermer est cliqué, la boite disparaît
+            ferme.onclick = function() {
+                boite.style.display = "none";
+               
+                q10.style.display = "none";
+                q11.style.display = "none";
+                q12.style.display = "none";
+                q13.style.display = "none";
+                porte2.style.display = "none";
+            }
+            
+            // Appel à la fonction qui commence la minuterie
+            startTimer();
+            
+        </script>
+      
+    </body>
+    
+</html>
