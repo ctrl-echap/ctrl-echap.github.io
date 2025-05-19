@@ -1,5 +1,5 @@
 // On définit le temps maximale comme étant de 30 minutes
-let totalTime = 30 * 60; 
+let totalTime = 45 * 60; 
 
 // On définit la fonction qui commence minuterie
 function startTimer() {
@@ -28,6 +28,11 @@ function startTimer() {
             window.location.href = "pagefin2.html"; 
         }
     }
+
+    // On définit l'intervalle de temps pour rappeler l'utilisateur du temps qu'il lui reste
+    updateTimer();
+    const timerInterval = setInterval(updateTimer, 1000);
+}
 
     // On définit l'intervalle de temps pour rappeler l'utilisateur du temps qu'il lui reste
     updateTimer();
