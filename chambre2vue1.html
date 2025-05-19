@@ -1,1 +1,188 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8">
+        <title>Cuisine 1</title>
+        <link rel="stylesheet" href="css/styles.css">
+        <script src="script/imageMapResizer.min.js"></script>
+        <script src="script/script.js"></script>
+        <script src="script/minuterie.js"></script>
+    </head>
+    
+    <body style="background-color: #f0ce84;">
+        
+        <!--Le minuteur-->
+        <div id="game-timer" class="minuterie">00:00</div>
+        
+        <!--Bouton pour recommencer le jeu-->
+        <div class="recommence" onclick="recommencer()">
+            <img src="https://img.icons8.com/ios_filled/512/restart.png" style="object-fit: contain; height: 15px; width: 15px;">
+        </div>
+        
+        <center>
+            <!-- Image d'arrière-plan avec des sections cliquables -->
+            <div style="height: 100vh; overflow: hidden">
+                <!-- Image d'arrière-plan -->
+                <img src="https://assets.onecompiler.app/43a98jszu/43h3knddk/chambre2vue1.png" style="height: 100vh;" usemap="#chambre2vue1-map">
+                
+                <!-- Les sections cliquables sur l'image d'arrière-plan -->
+                <!-- Image Map générée par http://www.image-map.net/ -->
+                <map name="chambre2vue1-map">
+                    <area id="btnQuestion7" coords="1039,540,1043,790,1272,899,1306,896,1306,664,1500,548,1500,444,1244,339,1217,349,1220,445" shape="poly">
+                    <area id="btnQuestion8" coords="435,130,448,136,476,130,485,120,488,107,485,83,476,65,482,52,481,40,489,30,482,18,472,18,465,24,454,21,441,27,431,23,423,30,423,44,430,51,433,59,440,68,440,76,434,85,431,106,433,123" shape="poly">
+                    <area id="btnQuestion9" coords="177,776,180,838,343,760,341,697" shape="poly">
+                </map>
+            </div>
+        </center>
+        
+        <!--Flèche pour changer de vue-->
+        <a href="chambre2vue2.html" class="fleche-droite">&#10145;</a>
+        
+        <!--Boite "popup"-->
+        <div id="boite" class="boiteArriere">
+          <div class="contenuPopup">
+            <span class="fermer" style="cursor: pointer;">&times;</span> 
+            
+            <!--Question 7 : Four -->
+            <form id="question7" class="question">
+                <div id = "tblQ7">
+                    <table border="6">
+                        <tr>
+                            <td>
+                                <label for="questionFour"> 
+                                    M. Anonyme gagne 200 dollars par jour. S’il travaille tous les jours de l’année, combien gagnera-t-il en milliers de dollars au bout de 365 jours ?
+                                    <br> <i>(Exemple : si la réponse est 7000, écris 7)</i>
+                                </label>
+                                <br> <input id="questionFour" type="text"> <br>
+                                <input type="button" value="Valider" class="valider" onclick="salle3Question1()">
+                            </td>
+                        </tr> 
+                    </table>
+                </div>
+                
+                <div id="divAfficheFour" style="margin-top: 10px;">
+                </div>
+            </form>
+            
+            <!--Question 8 : Statue d'ours -->
+            <form id="question8" class="question">
+                <div id = "tblQ8">
+                    <table border="6">
+                        <tr>
+                            <td>
+                                <label for="questionOurs2"> Quel est le périmètre d’un triangle dont les côtés mesurent 8 unités, 3 unités et 7 unités ? </label>
+                                <br> <input id="questionOurs2" type="text"> <br>
+                                <input type="button" value="Valider" class="valider" onclick="salle3Question2()">
+                            </td>
+                        </tr> 
+                    </table>
+                </div>
+                
+                <div id="divAfficheOurs2" style="margin-top: 10px;">
+                </div>
+            </form>
+            
+            <!--Question 9 : Tiroir 2 -->
+            <form id="question9" class="question">
+                <div id = "tblQ9">
+                    <table border="6">
+                        <tr>
+                            <td>
+                                <label for="questionTiroir2"> Quelle est l’aire d’un triangle équilatéral dont chaque côté mesure 2 unités ? Arrondis ta réponse à l’unité près. </label>
+                                <br> <input id="questionTiroir2" type="text"> <br>
+                                <input type="button" value="Valider" class="valider" onclick="salle3Question3()">
+                            </td>
+                        </tr> 
+                    </table>
+                </div>
+                
+                <div id="divAfficheTiroir2" style="margin-top: 10px;">
+                </div>
+            </form>
+            
+          </div>
+        </div>
+        
+        <script>
+            imageMapResize(); // Appel à la fonction qui permet de redimensionner les « image maps »
+            
+            //Boite arrière pour le "popup"
+            var boite = document.getElementById("boite");
+            
+            //Trouve les boutons
+            var btn7 = document.getElementById("btnQuestion7");
+            var btn8 = document.getElementById("btnQuestion8");
+            var btn9 = document.getElementById("btnQuestion9");
 
+            //Questions à afficher
+            var q7 = document.getElementById("question7");
+            var q8 = document.getElementById("question8");
+            var q9 = document.getElementById("question9");
+
+            //Tableaux de questions
+            var tblQ7 = document.getElementById("tblQ7");
+            var tblQ8 = document.getElementById("tblQ8");
+            var tblQ9 = document.getElementById("tblQ9");
+
+            // Espaces pour afficher les messages
+            var afficheFour = document.getElementById("divAfficheFour")
+            var afficheOurs2 = document.getElementById("divAfficheOurs2")
+            var afficheTiroir2 = document.getElementById("divAfficheTiroir2")
+
+            //Associe le bouton à la fonction pour afficher la boîte avec la question
+            btn7.onclick = function(){
+                boite.style.display = "block"
+                q7.style.display = "block"
+                // Si la question du four a déjà été répondue correctement
+                if (sessionStorage.getItem("questionFourFait") == "true") {
+                    tblQ7.style.display = "none"
+                    afficheFour.innerHTML = "🥧 = 73"
+                } else {
+                    tblQ7.style.display = "block"
+                }
+            }
+            
+            btn8.onclick = function(){
+                boite.style.display = "block"
+                q8.style.display = "block"
+                // Si la question de la statue d'ours a déjà été répondue correctement
+                if (sessionStorage.getItem("questionOurs2Fait") == "true") {
+                    tblQ8.style.display = "none"
+                    afficheOurs2.innerHTML = "🍬 = 18"
+                } else {
+                    tblQ8.style.display = "block"
+                    
+                }
+            }
+            
+            btn9.onclick = function(){
+                boite.style.display = "block"
+                q9.style.display = "block"
+                // Si la question du deuxième tiroir a déjà été répondue correctement
+                if (sessionStorage.getItem("questionTiroir2Fait") == "true") {
+                    tblQ9.style.display = "none"
+                    afficheTiroir2.innerHTML = "🥄 = 2"
+                } else {
+                    tblQ9.style.display = "block"
+                    
+                }
+            }
+            
+            //Récupère le bouton qui ferme le "popup"
+            var ferme = document.getElementsByClassName("fermer")[0]
+            
+            //Si le bouton pour fermer est cliqué, la boite disparaît
+            ferme.onclick = function() {
+                boite.style.display = "none";
+               
+                q7.style.display = "none";
+                q8.style.display = "none";
+                q9.style.display = "none";
+            }
+            
+            // Appel à la fonction qui commence la minuterie
+            startTimer();
+            
+        </script>
+    </body>
+</html>
