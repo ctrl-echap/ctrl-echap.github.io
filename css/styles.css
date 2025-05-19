@@ -1,13 +1,16 @@
+/*Styles pour le jeu en entier*/
 * {
   margin: 0;
   padding: 0;
 }
 
+/*Styles pour le corps du jeu*/
 body {
     background-color:#366952; 
     color: #fff;
 }
 
+/*Style pour les données dans les tableaux*/
 td {
     padding: 15px;
 }
@@ -39,6 +42,8 @@ td {
     background-color: rgb(0,0,0);
     background-color: rgba(0,0,0,0.4); 
 }
+
+/* Styles pour le contenu dans les boîtes "popup/modal" */
 .contenuPopup {
     width: 75%;
     background-color: #fef9e7;
@@ -52,34 +57,48 @@ td {
     line-height: 1.6;
     box-shadow: 0 4px 8px rgba(0,0,0,0.1);
 }
+
+/* Style pour le contenu dans les boîtes "popup/modal" lorsque le texte est en gras*/
 .contenuPopup strong {
     color: #d35400;
 }
 
+/* Styles pour les tableaux */
 table {
     border-collapse: collapse;
-    border: 6px solid #7a7e85;
+    border: 6px solid #d1805a;
 }
 
-/*Le bouton pour enlever la boîte "popup"*/
+/* Styles pour le bouton pour enlever la boîte "popup" */
 .fermer {
     font-size: 30px;
     transition: 0.3s;
 }
-/*Le bouton pour enlever la boîte d'instructions au survol de la souris*/
+/* Style du bouton pour enlever la boîte d'instructions au survol de la souris */
 .fermer:hover {
-    color: #7a7e85;
+    color: #d1805a;
 }
 
+/* Par défaut, les questions et les questions aux portes ne sont pas visibles */
 .question,
 .porte {
     display: none;
 }
 
-.valider {
+/*Style pour tout les sections de "input", alors les boutons et zones de text*/
+input {
+    font-family: 'Comic Sans MS', cursive, sans-serif;
+    border-color: #d68763;
     padding: 5px;
+    margin-top: 5px;
 }
 
+/* Style pour les boutons qui valident les questions */
+.valider {
+    background-color: #f7e3da;
+}
+
+/* Styles pour les boutons "flèche-droite" qui permet de changer de vues */
 .fleche-droite {
     position: absolute;
     bottom: 30px;
@@ -94,6 +113,7 @@ table {
     transition: background-color 0.3s ease;
 }
 
+/* Styles pour les boutons "flèche-gauche" qui permet de changer de vues */
 .fleche-gauche {
     position: absolute;
     bottom: 30px;
@@ -107,12 +127,15 @@ table {
     padding: 10px 16px;
     transition: background-color 0.3s ease;
 }
+
+/* Styles pour les boutons de flèche au survol de la souris */
 .fleche-droite:hover,  
 .fleche-gauche:hover{
     background-color: #F2D2A5;
     cursor: pointer;
 }
 
+/* Styles pour la minuterie */
 .minuterie {
     position: fixed;
     top: 15px;
@@ -127,6 +150,7 @@ table {
     z-index: 999;
 }
 
+/* Styles pour le bouton "recommencer" pendant le jeu */
 .recommence {
     position: fixed;
     top: 12px;
@@ -143,11 +167,13 @@ table {
     border: 1px solid black;
 }
 
+/* Au survol de la souris : styles pour le bouton "recommencer" pendant le jeu */
 .recommence:hover {
     background-color: #F2D2A5;
     cursor: pointer;
 }
 
+/* Styles pour le bouton "recommencer" qui est à la fin du jeu */
 .recommence2{
     padding: 10px;
     border-radius: 10px;
@@ -159,7 +185,8 @@ table {
     cursor: pointer;
     transition: 0.3s;
 }
-            
+
+/* Au survol de la souris : styles pour le bouton "recommencer" qui est à la fin du jeu */            
 .recommence2:hover {
     background-color: black;
     color: white;
