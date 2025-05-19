@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Échec</title>
+        <link rel="stylesheet" href="css/styles.css">
+        <script src="script/script.js"></script>
+        <style>
+            body {
+              margin: 0;
+              padding: 0;
+              font-family: Arial, sans-serif;
+              background-color: black;
+              height: 100vh;
+              display: flex;
+              flex-direction: column;
+              justify-content: center;
+              align-items: center;
+              color: white;
+              text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.7);
+            }
+        
+            h1 {
+              font-size: 3rem;
+              text-align: center;
+              margin-bottom: 20px;
+            }
+        
+            .gif {
+              width: 200px;
+              height: auto;
+            }
+        </style>
+    </head>
+    
+    <body onload="nombreDeBonnesReponses()">
+        <h1>Le temps est écoulé !</h1>
+        <img src="https://upload.wikimedia.org/wikipedia/commons/7/7a/Alarm_Clock_GIF_Animation_High_Res.gif" alt="Alarme" class="gif">
+        <h2 id="scoreFinal"></h2>
+        
+        <div class="recommence2" onclick="recommencer2()">
+            Recommencer
+        </div>
+      
+        <script>
+            function nombreDeBonnesReponses() {
+                // Créer une constante avec le nom de toutes les questions du jeu
+                const tblQuestions = ["questionOursFait", "questionPlanteFait", "questionPeintureFait", 
+                "questionTiroirFait", "questionCadreFait", "questionPapierFait", 
+                "porte1Fait", "questionFourFait", "questionOurs2Fait", 
+                "questionTiroir2Fait", "questionBol1Fait", "questionBol2Fait", 
+                "questionBol3Fait", "questionAfficheFait", "porte2Fait"];
+                
+                // Variable pour le nombre de questions répondues correctement
+                var questionsRepondues = 0
+                
+                // Boucle for qui incrémente le nombre de questions répondues par 1 à chaque bonne réponse
+                for (let i = 0; i < tblQuestions.length; i++) {
+                    if (sessionStorage.getItem(tblQuestions[i]) == "true") {
+                        questionsRepondues++;
+                    }
+                }
+                
+                // Récupérer l'endroit où on affiche le score
+                var afficheScore = document.getElementById("scoreFinal")
+                
+                // Afficher le résultat à l'écran
+                afficheScore.innerHTML = questionsRepondues + "/15 questions répondues"
+            }
+        </script>
+    </body>
+</html>
