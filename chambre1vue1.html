@@ -2,18 +2,26 @@
 <html>
     <head>
         <meta charset="utf-8">
-        <title>Chambre 1 (vue 1)</title>
+        <title>Chambre 1</title>
         <link rel="stylesheet" href="css/styles.css">
         <script src="script/imageMapResizer.min.js"></script>
         <script src="script/script.js"></script>
-        <style>
-            td {
-                padding: 15px;
-            }
-        </style>
+        <script src="script/minuterie.js"></script>
+        <!-- Source pour la ligne de code suivante : https://www.mathjax.org/#gettingstarted -->
+        <!-- Ce bout de code permet d'afficher les expressions mathématiques de façon plus lisible et professionnelle lorsqu'elles sont encadrer par \(...\)  -->
+        <script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
     </head>
     
-    <body style="background-color: #F6AD89">
+    <body style="background-color: #F6AD89;">
+        
+        <!--Le minuteur-->
+        <div id="game-timer" class="minuterie">00:00</div>
+        
+        <!--Bouton pour recommencer le jeu-->
+        <div class="recommence" onclick="recommencer()">
+            <img src="https://img.icons8.com/ios_filled/512/restart.png" style="object-fit: contain; height: 15px; width: 15px;">
+        </div>
+        
         <center>
             <!-- Image d'arrière-plan avec des sections cliquables -->
             <div style="height: 100vh; overflow: hidden">
@@ -43,17 +51,17 @@
                 <div id = "tblQ1">
                     <table border="6">
                         <tr>
-                        <td>
-                            <label for="questionOurs">Quelle  est valeur de x dans l'équation: <br>7x - 2 + 55x - 7 = 301</label>
-                            <br> <input id="questionOurs" type="text"> <br>
-                            <input type="button" value="Valider" class="valider" onclick="salle1Question1()">
-                        </td>
+                            <td>
+                                <label for="questionOurs">Quelle  est valeur de \(x\) dans l'équation: <br>\(7x - 2 + 55x - 7 = 301\)</label>
+                                <br> <input id="questionOurs" type="text"> <br>
+                                <input type="button" value="Valider" class="valider" onclick="salle1Question1()">
+                            </td>
                         </tr>
                     </table>
                 </div>
                 
                 <!--Élément div pour annoncer si la réponse entrée était bonne ou mauvaise-->
-                <div id="divAfficheOurs">
+                <div id="divAfficheOurs" style="margin-top: 10px;">
                 </div>
             </form>
             
@@ -62,16 +70,16 @@
                 <div id = "tblQ2">
                     <table border="6">
                         <tr>
-                        <td>
-                          <label for="questionPlante">Quelle  est valeur de x dans l'équation: <br>(X-2)/(5X+7)=7/52</label>
-                          <br> <input id="questionPlante" type="text"> <br>
-                          <input type="button" value="Valider" class="valider" onclick="salle1Question2()">
-                        </td>
+                            <td>
+                              <label for="questionPlante">Quelle  est valeur de \(x\) dans l'équation: <br>\(\frac{x-2}{5x+7} = \frac{7}{52}\)</label>
+                              <br> <input id="questionPlante" type="text"> <br>
+                              <input type="button" value="Valider" class="valider" onclick="salle1Question2()">
+                            </td>
                         </tr>
                     </table>
                 </div>
                 
-                <div id="divAffichePlante">
+                <div id="divAffichePlante" style="margin-top: 10px;">
                 </div>
             </form>
             
@@ -80,16 +88,16 @@
                 <div id = "tblQ3">
                     <table border="6">
                         <tr>
-                        <td>
-                            <label for="questionPeinture"> Un ours peint un chef-d'oeuvre. Il commence à travailler à 8 h le matin et travaille pendant 4 heures. L'ours prend une pause dîner pendant une heure. Enfin, il continue à peindre pendant 3 heures. À quelle heure aurait-il terminé sa peinture? Réponds en utilisant le système horaire de 24 heures.</label>
-                            <br> <input id="questionPeinture" type="text"> <br>
-                            <input type="button" value="Valider" class="valider" onclick="salle1Question3()">
-                        </td>
+                            <td>
+                                <label for="questionPeinture"> Un ours peint un chef-d'oeuvre. Il commence à travailler à 8 h le matin et travaille pendant 4 heures. L'ours prend une pause dîner pendant une heure. Enfin, il continue à peindre pendant 3 heures. À quelle heure aurait-il terminé sa peinture? Réponds en utilisant le système horaire de 24 heures.</label>
+                                <br> <input id="questionPeinture" type="text"> <br>
+                                <input type="button" value="Valider" class="valider" onclick="salle1Question3()">
+                            </td>
                         </tr> 
                     </table>
                 </div>
                 
-                <div id="divAffichePeinture">
+                <div id="divAffichePeinture" style="margin-top: 10px;">
                 </div>
             </form>
             
@@ -122,26 +130,29 @@
             var affichePlante = document.getElementById("divAffichePlante")
             var affichePeinture = document.getElementById("divAffichePeinture")
             
-            //Associe le bouton à la fonction pour afficher la boîte avec la question
+            //Associe le bouton #1 à la fonction pour afficher la boîte avec la question
             btn1.onclick = function(){
                 boite.style.display = "block"
                 q1.style.display = "block"
-                // Si la question de l'ours en peluche a déjà été répondue correctement
+                // Si la question de l'ours en peluche a déjà été répondue correctement, affiche seulement l'indice
                 if (sessionStorage.getItem("questionOursFait") == "true") {
                     tblQ1.style.display = "none"
                     afficheOurs.innerHTML = "🧸 = 5"
+                // Sinon, affiche la question
                 } else {
                     tblQ1.style.display = "block"
                 }
             }
             
+            //Associe le bouton #2 à la fonction pour afficher la boîte avec la question
             btn2.onclick = function(){
                 boite.style.display = "block"
                 q2.style.display = "block"
-                // Si la question de la plante a déjà été répondue correctement
+                // Si la question de la plante a déjà été répondue correctement, affiche seulement l'indice
                 if (sessionStorage.getItem("questionPlanteFait") == "true") {
                     tblQ2.style.display = "none"
                     affichePlante.innerHTML = "🪴 = 9"
+                // Sinon, affiche la question
                 } else {
                     tblQ2.style.display = "block"
                     
@@ -151,10 +162,11 @@
             btn3.onclick = function(){
                 boite.style.display = "block"
                 q3.style.display = "block"
-                // Si la question de la peinture a déjà été répondue correctement
+                // Si la question de la peinture a déjà été répondue correctement, affiche seulement l'indice
                 if (sessionStorage.getItem("questionPeintureFait") == "true") {
                     tblQ3.style.display = "none"
                     affichePeinture.innerHTML = "🎨 = 16"
+                // Sinon, affiche la question
                 } else {
                     tblQ3.style.display = "block"
                 }
@@ -162,6 +174,7 @@
 
             //Récupère le bouton qui ferme le "popup"
             var ferme = document.getElementsByClassName("fermer")[0]
+            
             //Si le bouton pour fermer est cliqué, la boite disparaît
             ferme.onclick = function() {
                 boite.style.display = "none";
@@ -171,8 +184,10 @@
                 q3.style.display = "none";
             }
             
+            // Appel à la fonction qui commence la minuterie
+            startTimer();
+            
         </script>
-      
-    </body>
+    </body> 
     
 </html>
