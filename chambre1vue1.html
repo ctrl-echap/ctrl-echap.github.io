@@ -44,65 +44,72 @@
         
         <!--Boite "popup"-->
         <div id="boite" class="boiteArriere">
-          <div class="contenuPopup">
-            <span class="fermer" style="cursor: pointer;">&times;</span> 
-            
-            <!--Question 1: Ours en peluche-->
-            <form id="question1" class="question">
-                <div id = "tblQ1">
-                    <table border="6">
-                        <tr>
-                            <td>
-                                <label for="questionOurs">Quelle  est valeur de \(x\) dans l'équation: <br>\(7x - 2 + 55x - 7 = 301\)</label>
-                                <br> <input id="questionOurs" type="text"> <br>
-                                <input type="button" value="Valider" class="valider" onclick="salle1Question1()">
-                            </td>
-                        </tr>
-                    </table>
-                </div>
+            <!--Contenu du "popup" : Les différentes questions-->
+            <div class="contenuPopup">
+                <!--Bouton « X » pour fermer le "popup"-->
+                <span class="fermer" style="cursor: pointer;">&times;</span> 
                 
-                <!--Élément div pour annoncer si la réponse entrée était bonne ou mauvaise-->
-                <div id="divAfficheOurs" style="margin-top: 10px;">
-                </div>
-            </form>
-            
-            <!--Question 2: Plante-->
-            <form id="question2" class="question">
-                <div id = "tblQ2">
-                    <table border="6">
-                        <tr>
-                            <td>
-                              <label for="questionPlante">Quelle  est valeur de \(x\) dans l'équation: <br>\(\frac{x-2}{5x+7} = \frac{7}{52}\)</label>
-                              <br> <input id="questionPlante" type="text"> <br>
-                              <input type="button" value="Valider" class="valider" onclick="salle1Question2()">
-                            </td>
-                        </tr>
-                    </table>
-                </div>
+                <!--Question 1: Ours en peluche-->
+                <form id="question1" class="question">
+                    <div id = "tblQ1">
+                        <table border="6">
+                            <tr>
+                                <!--Question, champ de saisie et bouton pour valider-->
+                                <td>
+                                    <label for="questionOurs">Quelle  est valeur de \(x\) dans l'équation: <br>\(7x - 2 + 55x - 7 = 301\)</label>
+                                    <br> <input id="questionOurs" type="number"> <br>
+                                    <input type="button" value="Valider" class="valider" onclick="salle1Question1()">
+                                </td>
+                            </tr>
+                        </table>
+                    </div>
+                    
+                    <!--Espace pour afficher si la réponse entrée est bonne ou mauvaise-->
+                    <div id="divAfficheOurs" style="margin-top: 10px;">
+                    </div>
+                </form>
                 
-                <div id="divAffichePlante" style="margin-top: 10px;">
-                </div>
-            </form>
-            
-            <!--Question 3: Peinture-->
-            <form id="question3" class="question">
-                <div id = "tblQ3">
-                    <table border="6">
-                        <tr>
-                            <td>
-                                <label for="questionPeinture"> Un ours peint un chef-d'oeuvre. Il commence à travailler à 8 h le matin et travaille pendant 4 heures. L'ours prend une pause dîner pendant une heure. Enfin, il continue à peindre pendant 3 heures. À quelle heure aurait-il terminé sa peinture? Réponds en utilisant le système horaire de 24 heures.</label>
-                                <br> <input id="questionPeinture" type="text"> <br>
-                                <input type="button" value="Valider" class="valider" onclick="salle1Question3()">
-                            </td>
-                        </tr> 
-                    </table>
-                </div>
+                <!--Question 2: Plante-->
+                <form id="question2" class="question">
+                    <div id = "tblQ2">
+                        <table border="6">
+                            <tr>
+                                <!--Question, champ de saisie et bouton pour valider-->
+                                <td>
+                                  <label for="questionPlante">Quelle  est valeur de \(x\) dans l'équation: <br>\(\frac{x-2}{5x+7} = \frac{7}{52}\)</label>
+                                  <br> <input id="questionPlante" type="number"> <br>
+                                  <input type="button" value="Valider" class="valider" onclick="salle1Question2()">
+                                </td>
+                            </tr>
+                        </table>
+                    </div>
+                    
+                    <!--Espace pour afficher si la réponse entrée est bonne ou mauvaise-->
+                    <div id="divAffichePlante" style="margin-top: 10px;">
+                    </div>
+                </form>
                 
-                <div id="divAffichePeinture" style="margin-top: 10px;">
-                </div>
-            </form>
+                <!--Question 3: Peinture-->
+                <form id="question3" class="question">
+                    <div id = "tblQ3">
+                        <table border="6">
+                            <tr>
+                                <!--Question, champ de saisie et bouton pour valider-->
+                                <td>
+                                    <label for="questionPeinture"> Un ours peint un chef-d'oeuvre. Il commence à travailler à 8 h le matin et travaille pendant 4 heures. L'ours prend une pause dîner pendant une heure. Enfin, il continue à peindre pendant 3 heures. À quelle heure aurait-il terminé sa peinture? Réponds en utilisant le système horaire de 24 heures.</label>
+                                    <br> <input id="questionPeinture" type="number"> <br>
+                                    <input type="button" value="Valider" class="valider" onclick="salle1Question3()">
+                                </td>
+                            </tr> 
+                        </table>
+                    </div>
+                    
+                    <!--Espace pour afficher si la réponse entrée est bonne ou mauvaise-->
+                    <div id="divAffichePeinture" style="margin-top: 10px;">
+                    </div>
+                </form>
             
-          </div>
+            </div>
         </div>
         
         <script>
@@ -131,7 +138,7 @@
             var affichePlante = document.getElementById("divAffichePlante")
             var affichePeinture = document.getElementById("divAffichePeinture")
             
-            //Associe le bouton #1 à la fonction pour afficher la boîte avec la question
+            //Afficher la boîte avec question ou l'indice lorsqu'on clique sur l'ours en peluche
             btn1.onclick = function(){
                 boite.style.display = "block"
                 q1.style.display = "block"
@@ -145,7 +152,7 @@
                 }
             }
             
-            //Associe le bouton #2 à la fonction pour afficher la boîte avec la question
+            //Afficher la boîte avec question ou l'indice lorsqu'on clique sur la plante
             btn2.onclick = function(){
                 boite.style.display = "block"
                 q2.style.display = "block"
@@ -160,6 +167,7 @@
                 }
             }
             
+            //Afficher la boîte avec question ou l'indice lorsqu'on clique sur la peinture
             btn3.onclick = function(){
                 boite.style.display = "block"
                 q3.style.display = "block"
