@@ -41,67 +41,75 @@
         
         <!--Boite "popup"-->
         <div id="boite" class="boiteArriere">
-          <div class="contenuPopup">
-            <span class="fermer" style="cursor: pointer;">&times;</span> 
-            
-            <!--Question 7 : Four -->
-            <form id="question7" class="question">
-                <div id = "tblQ7">
-                    <table border="6">
-                        <tr>
-                            <td>
-                                <label for="questionFour"> 
-                                    M. Anonyme gagne 200 dollars par jour. S’il travaille tous les jours de l’année, combien gagnera-t-il en milliers de dollars au bout de 365 jours ?
-                                    <br> <i>(Exemple : si la réponse est 7000, écris 7)</i>
-                                </label>
-                                <br> <input id="questionFour" type="text"> <br>
-                                <input type="button" value="Valider" class="valider" onclick="salle3Question1()">
-                            </td>
-                        </tr> 
-                    </table>
-                </div>
+            <!--Contenu du "popup" : Les différentes questions-->
+            <div class="contenuPopup">
+                <!--Bouton « X » pour fermer le "popup"-->
+                <span class="fermer" style="cursor: pointer;">&times;</span> 
                 
-                <div id="divAfficheFour" style="margin-top: 10px;">
-                </div>
-            </form>
-            
-            <!--Question 8 : Statue d'ours -->
-            <form id="question8" class="question">
-                <div id = "tblQ8">
-                    <table border="6">
-                        <tr>
-                            <td>
-                                <label for="questionOurs2"> Quel est le périmètre d’un triangle dont les côtés mesurent 8 unités, 3 unités et 7 unités ? </label>
-                                <br> <input id="questionOurs2" type="text"> <br>
-                                <input type="button" value="Valider" class="valider" onclick="salle3Question2()">
-                            </td>
-                        </tr> 
-                    </table>
-                </div>
+                <!--Question 7 : Four -->
+                <form id="question7" class="question">
+                    <div id = "tblQ7">
+                        <table border="6">
+                            <tr>
+                                <!--Question, champ de saisie et bouton pour valider-->
+                                <td>
+                                    <label for="questionFour"> 
+                                        M. Anonyme gagne 200 dollars par jour. S’il travaille tous les jours de l’année, combien gagnera-t-il en milliers de dollars au bout de 365 jours ?
+                                        <br> <i>(Exemple : si la réponse est 7000, écris 7)</i>
+                                    </label>
+                                    <br> <input id="questionFour" type="number"> <br>
+                                    <input type="button" value="Valider" class="valider" onclick="salle3Question1()">
+                                </td>
+                            </tr> 
+                        </table>
+                    </div>
+                    
+                    <!--Espace pour afficher si la réponse entrée est bonne ou mauvaise-->
+                    <div id="divAfficheFour" style="margin-top: 10px;">
+                    </div>
+                </form>
                 
-                <div id="divAfficheOurs2" style="margin-top: 10px;">
-                </div>
-            </form>
-            
-            <!--Question 9 : Tiroir 2 -->
-            <form id="question9" class="question">
-                <div id = "tblQ9">
-                    <table border="6">
-                        <tr>
-                            <td>
-                                <label for="questionTiroir2"> Quelle est l’aire d’un triangle équilatéral dont chaque côté mesure 2 unités ? Arrondis ta réponse à l’unité près. </label>
-                                <br> <input id="questionTiroir2" type="text"> <br>
-                                <input type="button" value="Valider" class="valider" onclick="salle3Question3()">
-                            </td>
-                        </tr> 
-                    </table>
-                </div>
+                <!--Question 8 : Statue d'ours -->
+                <form id="question8" class="question">
+                    <div id = "tblQ8">
+                        <table border="6">
+                            <tr>
+                                <!--Question, champ de saisie et bouton pour valider-->
+                                <td>
+                                    <label for="questionOurs2"> Quel est le périmètre d’un triangle dont les côtés mesurent 8 unités, 3 unités et 7 unités ? </label>
+                                    <br> <input id="questionOurs2" type="number"> <br>
+                                    <input type="button" value="Valider" class="valider" onclick="salle3Question2()">
+                                </td>
+                            </tr> 
+                        </table>
+                    </div>
+                    
+                    <!--Espace pour afficher si la réponse entrée est bonne ou mauvaise-->
+                    <div id="divAfficheOurs2" style="margin-top: 10px;">
+                    </div>
+                </form>
                 
-                <div id="divAfficheTiroir2" style="margin-top: 10px;">
-                </div>
-            </form>
+                <!--Question 9 : Tiroir 2 -->
+                <form id="question9" class="question">
+                    <div id = "tblQ9">
+                        <table border="6">
+                            <tr>
+                                <!--Question, champ de saisie et bouton pour valider-->
+                                <td>
+                                    <label for="questionTiroir2"> Quelle est l’aire d’un triangle équilatéral dont chaque côté mesure 2 unités ? Arrondis ta réponse à l’unité près. </label>
+                                    <br> <input id="questionTiroir2" type="number"> <br>
+                                    <input type="button" value="Valider" class="valider" onclick="salle3Question3()">
+                                </td>
+                            </tr> 
+                        </table>
+                    </div>
+                    
+                    <!--Espace pour afficher si la réponse entrée est bonne ou mauvaise-->
+                    <div id="divAfficheTiroir2" style="margin-top: 10px;">
+                    </div>
+                </form>
             
-          </div>
+            </div>
         </div>
         
         <script>
@@ -130,7 +138,7 @@
             var afficheOurs2 = document.getElementById("divAfficheOurs2")
             var afficheTiroir2 = document.getElementById("divAfficheTiroir2")
 
-            //Associe le bouton à la fonction pour afficher la boîte avec la question
+            //Afficher la boîte avec question ou l'indice lorsqu'on clique sur le four
             btn7.onclick = function(){
                 boite.style.display = "block"
                 q7.style.display = "block"
@@ -143,6 +151,7 @@
                 }
             }
             
+            //Afficher la boîte avec question ou l'indice lorsqu'on clique sur la statue d'ours
             btn8.onclick = function(){
                 boite.style.display = "block"
                 q8.style.display = "block"
@@ -156,6 +165,7 @@
                 }
             }
             
+            //Afficher la boîte avec question ou l'indice lorsqu'on clique sur le tiroir
             btn9.onclick = function(){
                 boite.style.display = "block"
                 q9.style.display = "block"
