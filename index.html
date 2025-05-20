@@ -14,16 +14,17 @@
         <link rel="preconnect" href="https://fonts.googleapis.com">
         <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
         <link href="https://fonts.googleapis.com/css2?family=Spicy+Rice&display=swap" rel="stylesheet">
+        <!--Style CSS-->
         <style>
-        
+            /*Style pour positionner les boutons sur la page d'accueil*/
             .boutons_accueil{
                 display: flex;
                 justify-content: center;
                 align-items: center;
                 height: 40vh;
-                
             }
-             
+            
+            /*Style pour les boutons eux-même sur la page d'accueil*/ 
             .commencer, .instructions{
                 padding: 15px 30px;
                 margin: 15px;
@@ -34,6 +35,7 @@
                 border-radius: 8px;
             }
             
+            /*Style des boutons au survol de la souris sur la page d'accueil*/
             .commencer:hover, .instructions:hover {
                 background-color: #F2D2A5; 
                 color: black;
@@ -42,19 +44,21 @@
                 border-radius: 8px;
                 cursor: pointer;
             }
-            
         </style>
     </head> 
     
     <body class="body_accueil">
         <center>
+            <!--L'image d'arrière-plan-->
             <div>
                 <img src="images/accueil.png" style="height: 100vh;">
             </div>
             
-            <div style="position: absolute; top: 30%; width: 90%; margin: 5%;">
+            <div style="position: absolute; top: 28%; width: 90%; margin: 5%;">
+                <!--Le titre-->
                 <h1 class="titre">L'Évasion de l'arithméticien</h1>
-
+            
+                <!--Les boutons pour commencer le jeu et pour les instructions-->
                 <div class="boutons_accueil">
                     <button class="commencer" onclick="commencerJeu()">Commencer</button>
                     <button id="btnInstructions" class="instructions" style="cursor: help;">?</button>
@@ -65,7 +69,9 @@
         <!--Boite d'instructioction/introduction-->
         <!--Source d'inspiration: https://www.w3schools.com/howto/howto_css_modals.asp-->
         <div id="boiteInstructions" class="boiteArriere">
+            <!--Le contenu des instructions / l'histoire pour le jeu-->
             <div class="contenuPopup">
+                <!--Bouton « X » pour fermer le "popup"-->
                 <span class="fermer" style="cursor: pointer;">&times;</span> 
                 <p>
                     <strong>Un ours</strong> aperçoit une maison habitée par un humain. Curieux, il grimpe et entre par une fenêtre ouverte. 
@@ -78,8 +84,8 @@
                     <strong>problèmes de mathématiques</strong> !
                 </p><br>
                 <p>
-                    En ce moment, l’arithméticien participe à un concours de mathématiques, mais il reviendra dans <strong>exactement 30 minutes</strong>. 
-                    Il faut donc faire vite, car l’ours a peur de se faire attraper… et d’être envoyé au zoo !
+                    En ce moment, l’arithméticien participe à un concours de mathématiques, mais il reviendra dans <strong>exactement 45 minutes</strong>. 
+                    Il faut donc faire <strong>vite</strong>, car l’ours a peur de se faire attraper… et d’être envoyé au zoo !
                 </p><br>
                 <p>
                     Le but du jeu est d’aider l’ours à s’échapper en répondant correctement aux questions. 
@@ -95,27 +101,30 @@
             </div>
         </div>
         
+        <!--Code Javascript-->
         <script>
-            //Code pour afficher la boite d'instructions (sous forme "popup/modal")
-            //Récupère la boîte d'instructions
+            // Récupère la boîte d'instructions
             var instructions = document.getElementById("boiteInstructions")
-            //Trouve le bouton « ? »
+            
+            // Trouve le bouton « ? »
             var btn = document.getElementById("btnInstructions")
-            //Associe le bouton à la fonction pour afficher la boite d'instructions
+            
+            // Associe le bouton à la fonction pour afficher la boîte d'instructions
             btn.onclick = function() {
                 instructions.style.display = "block"
             }
             
-            //Récupère le bouton qui ferme les instructions
+            // Récupère le bouton qui ferme les instructions
             var ferme = document.getElementsByClassName("fermer")[0]
             
-            //Si le bouton pour fermer est cliqué, la boite disparaît
+            // Si le bouton pour fermer est cliqué, la boîte disparaît
             ferme.onclick = function() {
                 instructions.style.display = "none";
             }
             
+            // Lorsque le bouton « Commencer » est cliqué, commence le minuteur et va à la prochaine page .html
             function commencerJeu() {
-                sessionStorage.setItem("remainingTime", 1800); // 30 minutes en secondes
+                sessionStorage.setItem("remainingTime", 2700); // 45 minutes en secondes
                 window.location.href = "chambre1vue1.html"; // Source : https://www.w3schools.com/howto/howto_js_redirect_webpage.asp
             }
         </script>
