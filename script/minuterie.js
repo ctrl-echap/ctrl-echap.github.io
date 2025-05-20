@@ -1,3 +1,8 @@
+/*Sources pour le minuteur:
+1. https://www.digitalocean.com/community/tutorials/js-building-countdown-timer?utm_source=.com#step-3-formatting-to-days-hours-minutes-and-seconds
+2. https://www.developerdrive.com/build-countdown-timer-pure-javascript/?utm_source=t.com
+*/
+
 // On définit le temps maximale comme étant de 30 minutes
 let totalTime = 30 * 60; 
 
