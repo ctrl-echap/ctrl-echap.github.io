@@ -93,6 +93,11 @@ input {
     margin-top: 5px;
 }
 
+/*Style pour tout les sections de "input" de type "number"*/
+input[type=number] { /*Source : https://www.w3schools.com/css/css_form.asp*/
+    width: 80px;
+}
+
 /* Style pour les boutons qui valident les questions */
 .valider {
     background-color: #f7e3da;
