@@ -1,5 +1,5 @@
 // On définit le temps maximale comme étant de 30 minutes
-let totalTime = 45 * 60; 
+let totalTime = 30 * 60; 
 
 // On définit la fonction qui commence minuterie
 function startTimer() {
