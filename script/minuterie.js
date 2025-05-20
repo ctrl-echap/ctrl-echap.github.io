@@ -33,8 +33,3 @@ function startTimer() {
     updateTimer();
     const timerInterval = setInterval(updateTimer, 1000);
 }
-
-    // On définit l'intervalle de temps pour rappeler l'utilisateur du temps qu'il lui reste
-    updateTimer();
-    const timerInterval = setInterval(updateTimer, 1000);
-}
