@@ -43,78 +43,99 @@
         <!--Flèche pour changer de vue-->
         <a href="chambre1vue1.html" class="fleche-gauche">&#11013;</a>
           
-        <!--Boite "popup"-->
+         <!--Boite "popup"-->
         <div id="boite" class="boiteArriere">
-          <div class="contenuPopup">
-            <span class="fermer" style="cursor: pointer;">&times;</span>
-        
-            <!--Question 4 : Tiroir-->
-            <form id="question4" class="question">
-                <div id="tblQ4">
-                    <table border="6">
-                        <tr>
-                            <td>
-                                <label for="questionTiroir">Quelle  est valeur de \(x\) dans l'équation: <br>\(12 - 7 \times 12 + 72 = x^2\)</label>
-                                <br> <input id="questionTiroir" type="text"><br>
-                                <input type="button" value="Valider" class="valider" onclick="salle2Question1()">
-                            </td>
-                        </tr> 
-                    </table>
-                </div>
-                
-                <div id="divAfficheTiroir" style="margin-top: 10px;">
-                </div>
-            </form>
+            <!--Contenu du "popup" : Les différentes questions-->
+            <div class="contenuPopup">
+                <!--Bouton « X » pour fermer le "popup"-->
+                <span class="fermer" style="cursor: pointer;">&times;</span>
             
-            <!--Question 5 : Cadre-->
-            <form id="question5" class="question">
-                <div id="tblQ5">
-                    <table border="6">
-                        <tr>
-                            <td>
-                                <label for="questionCadre">La droite d’équation \(f(x)\) = ax + b passe par les points (5, 8) et (-3, 0). Quelle est l’aire du trapèze formé par les quatre points suivants : l’origine (0, 0), l'ordonnée à l'origine de \(f(x)\), le point (5, 8) et le point (5, 0) ? Donne une réponse arrondie à l’unité près. </label>
-                                <br> <input id="questionCadre" type="text"><br>
-                                <input type="button" value="Valider" class="valider" onclick="salle2Question2()">
-                            </td>
-                        </tr> 
-                    </table>
-                </div>
+                <!--Question 4 : Tiroir-->
+                <form id="question4" class="question">
+                    <div id="tblQ4">
+                        <table border="6">
+                            <tr>
+                                <!--Question, champ de saisie et bouton pour valider-->
+                                <td>
+                                    <label for="questionTiroir">Quelle  est valeur de \(x\) dans l'équation: <br>\(12 - 7 \times 12 + 72 = x^2\)</label>
+                                    <br> <input id="questionTiroir" type="number"><br>
+                                    <input type="button" value="Valider" class="valider" onclick="salle2Question1()">
+                                </td>
+                            </tr> 
+                        </table>
+                    </div>
+                    
+                    <!--Espace pour afficher si la réponse entrée est bonne ou mauvaise-->
+                    <div id="divAfficheTiroir" style="margin-top: 10px;">
+                    </div>
+                </form>
                 
-                <div id="divAfficheCadre" style="margin-top: 10px;">
-                </div>
-            </form>
-            
-            <!--Question 6 : Papier-->
-            <form id="question6" class="question">
-                <div id="tblQ6">
-                    <table border="6">
-                        <tr>
-                            <td>
-                                <label for="questionPapier">Si \(3x + 6y = 30\) et \(x + y = 8\), quelle est la valeur de \(x - y\) ?</label>
-                                <br> <input id="questionPapier" type="text"><br>
-                                <input type="button" value="Valider" class="valider" onclick="salle2Question3()">
-                            </td>
-                        </tr> 
-                    </table>
-                </div>
+                <!--Question 5 : Cadre-->
+                <form id="question5" class="question">
+                    <div id="tblQ5">
+                        <table border="6">
+                            <tr>
+                                <!--Question, champ de saisie et bouton pour valider-->
+                                <td>
+                                    <label for="questionCadre">La droite d’équation \(f(x)\) = ax + b passe par les points (5, 8) et (-3, 0). Quelle est l’aire du trapèze formé par les quatre points suivants : l’origine (0, 0), l'ordonnée à l'origine de \(f(x)\), le point (5, 8) et le point (5, 0) ? Donne une réponse arrondie à l’unité près. </label>
+                                    <br> <input id="questionCadre" type="number"><br>
+                                    <input type="button" value="Valider" class="valider" onclick="salle2Question2()">
+                                </td>
+                            </tr> 
+                        </table>
+                    </div>
+                    
+                    <!--Espace pour afficher si la réponse entrée est bonne ou mauvaise-->
+                    <div id="divAfficheCadre" style="margin-top: 10px;">
+                    </div>
+                </form>
                 
-                <div id="divAffichePapier" style="margin-top: 10px;">
-                </div>
-            </form>
-            
-            <!--Serrure sur la porte de la première pièce-->
-            <form id="porte1" class="porte">
-                <div id="tblPorte1">
-                    <label for="echap1">🧸 + 🪴 + 🎨 + 🗃️ + 📈 + 📄 = </label>
-                    <input type="text" id="echap1" size="4"><br><br>
-                    <input type="button" value="Sortir de la salle" class="valider" onclick="validerSortie1()">
-                </div><br>
+                <!--Question 6 : Papier-->
+                <form id="question6" class="question">
+                    <div id="tblQ6">
+                        <table border="6">
+                            <tr>
+                                <!--Question, champ de saisie et bouton pour valider-->
+                                <td>
+                                    <label for="questionPapier">Si \(3x + 6y = 30\) et \(x + y = 8\), quelle est la valeur de \(x - y\) ?</label>
+                                    <br> <input id="questionPapier" type="number"><br>
+                                    <input type="button" value="Valider" class="valider" onclick="salle2Question3()">
+                                </td>
+                            </tr> 
+                        </table>
+                    </div>
+                    
+                    <!--Espace pour afficher si la réponse entrée est bonne ou mauvaise-->
+                    <div id="divAffichePapier" style="margin-top: 10px;">
+                    </div>
+                </form>
                 
-                <div id="divAffichePorte1">
-                </div>
-            </form>
+                <!--Serrure sur la porte de la première pièce-->
+                <form id="porte1" class="porte">
+                    <div id="tblPorte1">
+                        <table style="border: 0 solid transparent; width: 100%;">
+                            <tr>
+                                <!--Question, champ de saisie et bouton pour sortir de la salle-->
+                                <td>
+                                    <label for="echap1">🧸 + 🪴 + 🎨 + 🗃️ + 📈 + 📄 = </label>
+                                    <input type="number" id="echap1"><br><br>
+                                    <input type="button" value="Sortir de la salle" class="valider" onclick="validerSortie1()">
+                                </td>
+                                
+                                <!--Espace pour afficher les indices que le joueur a déjà trouvés-->
+                                <!--Source du "overflow-wrap": https://stackoverflow.com/questions/57195825/how-to-make-text-continue-to-new-line-when-reach-end-of-div-->
+                                <td id="indicesTrouves" valign="top" align="right" style="overflow-wrap: break-word;">
+                                </td>
+                            </tr>
+                        </table>
+                    </div><br>
+                    
+                    <!--Espace pour afficher si la réponse entrée est bonne ou mauvaise-->
+                    <div id="divAffichePorte1">
+                    </div>
+                </form>
             
-          </div>
+            </div>
         </div>
         
         <script>
@@ -144,8 +165,9 @@
             var afficheTiroir = document.getElementById("divAfficheTiroir")
             var afficheCadre = document.getElementById("divAfficheCadre")
             var affichePapier = document.getElementById("divAffichePapier")
+            var afficheIndices = document.getElementById("indicesTrouves")
             
-            //Associe le bouton à la fonction pour afficher la boîte avec la question
+            //Afficher la boîte avec question ou l'indice lorsqu'on clique sur le tiroir
             btn4.onclick = function(){
                 boite.style.display = "block"
                 q4.style.display = "block"
@@ -159,6 +181,7 @@
                 }
             }
             
+            //Afficher la boîte avec question ou l'indice lorsqu'on clique sur le cadre
             btn5.onclick = function(){
             boite.style.display = "block"
             q5.style.display = "block"
@@ -172,7 +195,7 @@
                 }
             }
             
-            
+            //Afficher la boîte avec question ou l'indice lorsqu'on clique sur le papier
             btn6.onclick = function(){
                 boite.style.display = "block"
                 q6.style.display = "block"
@@ -185,14 +208,52 @@
                 }
             }
     
-            
+            //Afficher la boîte avec question lorsqu'on clique sur la porte
             btnPorte.onclick = function(){
+                // Afficher la boîte et la question de la porte
                 boite.style.display = "block"
                 porte1.style.display = "block"
+                
+                // Créer une variable qui va contenir les indices des questions répondues correctement
+                var tblIndices = []
+                
+                // Si la question de l'ours est faite, ajouter son indice
+                if (sessionStorage.getItem("questionOursFait") == "true") {
+                    tblIndices.push("🧸 = 5")
+                }
+                
+                // Si la question de la plante est faite, ajouter son indice
+                if (sessionStorage.getItem("questionPlanteFait") == "true") {
+                    tblIndices.push("🪴 = 9")
+                }
+                
+                // Si la question de la peinture est faite, ajouter son indice
+                if (sessionStorage.getItem("questionPeintureFait") == "true") {
+                    tblIndices.push("🎨 = 16")
+                }
+                
+                // Si la question du tiroir est faite, ajouter son indice
+                if (sessionStorage.getItem("questionTiroirFait") == "true") {
+                    tblIndices.push("🗃️ = 0")
+                }
+                
+                // Si la question du cadre est faite, ajouter son indice
+                if (sessionStorage.getItem("questionCadreFait") == "true") {
+                    tblIndices.push("📈 = 28")
+                }
+                
+                // Si la question du papier est faite, ajouter son indice
+                if (sessionStorage.getItem("questionPapierFait") == "true") {
+                    tblIndices.push("📄 = 4")
+                }
+                
+                // Afficher les indices à l'écran
+                afficheIndices.innerHTML = "Indices trouvés : <br>" + tblIndices.join(', &nbsp;')
             }
             
             //Récupère le bouton qui ferme le "popup"
             var ferme = document.getElementsByClassName("fermer")[0]
+            
             //Si le bouton pour fermer est cliqué, la boite disparaît
             ferme.onclick = function() {
                 boite.style.display = "none";
