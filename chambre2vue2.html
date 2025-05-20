@@ -46,94 +46,117 @@
         
         <!--Boite "popup"-->
         <div id="boite" class="boiteArriere">
-          <div class="contenuPopup">
-            <span class="fermer" style="cursor: pointer;">&times;</span> 
-            
-            <!--Question 10: Bol #1-->
-            <form id="question10" class="question">
-                <div id = "tblQ10">
-                    <table border="6">
-                        <tr>
-                            <td>
-                                <label for="questionBolUn"> Trouve la somme des valeurs de \(x\) dans l'équation: \(2x^2 - 8x + 7 = 1\) </label>
-                                <br> <input id="questionBolUn" type="text"> <br>
-                                <input type="button" value="Valider" class="valider" onclick="salle4Question1()">
-                            </td>
-                        </tr> 
-                    </table>
-                </div>
+            <!--Contenu du "popup" : Les différentes questions-->
+            <div class="contenuPopup">
+                <!--Bouton « X » pour fermer le "popup"-->
+                <span class="fermer" style="cursor: pointer;">&times;</span> 
                 
-                <div id="divAfficheBolUn" style="margin-top: 10px;">
-                </div>
-            </form>
-            
-            <!--Question 11: Bol #2-->
-            <form id="question11" class="question">
-                <div id = "tblQ11">
-                    <table border="6">
-                        <tr>
-                            <td>
-                                <label for="questionBolDeux"> Quelle est la valeur de l'expression \(12 + 17 \times 3 \times 2^2\) </label>
-                                <br> <input id="questionBolDeux" type="text"> <br>
-                                <input type="button" value="Valider" class="valider" onclick="salle4Question2()">
-                            </td>
-                        </tr> 
-                    </table>
-                </div>
+                <!--Question 10: Bol #1-->
+                <form id="question10" class="question">
+                    <div id = "tblQ10">
+                        <table border="6">
+                            <tr>
+                                <!--Question, champ de saisie et bouton pour valider-->
+                                <td>
+                                    <label for="questionBolUn"> Trouve la somme des valeurs de \(x\) dans l'équation: \(2x^2 - 8x + 7 = 1\) </label>
+                                    <br> <input id="questionBolUn" type="number"> <br>
+                                    <input type="button" value="Valider" class="valider" onclick="salle4Question1()">
+                                </td>
+                            </tr> 
+                        </table>
+                    </div>
+                    
+                    <!--Espace pour afficher si la réponse entrée est bonne ou mauvaise-->
+                    <div id="divAfficheBolUn" style="margin-top: 10px;">
+                    </div>
+                </form>
                 
-                <div id="divAfficheBolDeux" style="margin-top: 10px;">
-                </div>
-            </form>
-            
-            <!--Question 12: Bol #3-->
-            <form id="question12" class="question">
-                <div id = "tblQ12">
-                    <table border="6">
-                        <tr>
-                            <td>
-                                <label for="questionBolTrois"> Quelle est la valeur de \(45 \times \sqrt{2025}\) ? </label>
-                                <br> <input id="questionBolTrois" type="text"> <br>
-                                <input type="button" value="Valider" class="valider" onclick="salle4Question3()">
-                            </td>
-                        </tr> 
-                    </table>
-                </div>
+                <!--Question 11: Bol #2-->
+                <form id="question11" class="question">
+                    <div id = "tblQ11">
+                        <table border="6">
+                            <tr>
+                                <!--Question, champ de saisie et bouton pour valider-->
+                                <td>
+                                    <label for="questionBolDeux"> Quelle est la valeur de l'expression \(12 + 17 \times 3 \times 2^2\) </label>
+                                    <br> <input id="questionBolDeux" type="number"> <br>
+                                    <input type="button" value="Valider" class="valider" onclick="salle4Question2()">
+                                </td>
+                            </tr> 
+                        </table>
+                    </div>
+                    
+                    <!--Espace pour afficher si la réponse entrée est bonne ou mauvaise-->
+                    <div id="divAfficheBolDeux" style="margin-top: 10px;">
+                    </div>
+                </form>
                 
-                <div id="divAfficheBolTrois" style="margin-top: 10px;">
-                </div>
-            </form>
-            
-            <!--Question 13: L'affiche-->
-            <form id="question13" class="question">
-                <div id = "tblQ13">
-                    <table border="6">
-                        <tr>
-                            <td>
-                                <label for="questionAffiche"> Quel est le périmètre d'un carré qui a une aire de 2025 \(u^2\) ? </label>
-                                <br> <input id="questionAffiche" type="text"> <br>
-                                <input type="button" value="Valider" class="valider" onclick="salle4Question4()">
-                            </td>
-                        </tr> 
-                    </table>
-                </div>
+                <!--Question 12: Bol #3-->
+                <form id="question12" class="question">
+                    <div id = "tblQ12">
+                        <table border="6">
+                            <tr>
+                                <!--Question, champ de saisie et bouton pour valider-->
+                                <td>
+                                    <label for="questionBolTrois"> Quelle est la valeur de \(45 \times \sqrt{2025}\) ? </label>
+                                    <br> <input id="questionBolTrois" type="number"> <br>
+                                    <input type="button" value="Valider" class="valider" onclick="salle4Question3()">
+                                </td>
+                            </tr> 
+                        </table>
+                    </div>
+                    
+                    <!--Espace pour afficher si la réponse entrée est bonne ou mauvaise-->
+                    <div id="divAfficheBolTrois" style="margin-top: 10px;">
+                    </div>
+                </form>
                 
-                <div id="divAfficheAffiche" style="margin-top: 10px;">
-                </div>
-            </form>
-            
-            <!--Serrure sur la porte de la première pièce-->
-            <form id="porte2" class="porte">
-                <div id="tblPorte2">
-                    <label for="echap2">\(🥖 \div (🥧 + 🥄) + 🍬 \div \sqrt{(🍓 - 🍪)} - 🍚 = \)</label>
-                    <input type="text" id="echap2" size="4"><br><br>
-                    <input type="button" value="Sortir de la salle" class="valider" onclick="validerSortie2()">
-                </div><br>
+                <!--Question 13: L'affiche-->
+                <form id="question13" class="question">
+                    <div id = "tblQ13">
+                        <table border="6">
+                            <tr>
+                                <!--Question, champ de saisie et bouton pour valider-->
+                                <td>
+                                    <label for="questionAffiche"> Quel est le périmètre d'un carré qui a une aire de 2025 \(u^2\) ? </label>
+                                    <br> <input id="questionAffiche" type="number"> <br>
+                                    <input type="button" value="Valider" class="valider" onclick="salle4Question4()">
+                                </td>
+                            </tr> 
+                        </table>
+                    </div>
+                    
+                    <!--Espace pour afficher si la réponse entrée est bonne ou mauvaise-->
+                    <div id="divAfficheAffiche" style="margin-top: 10px;">
+                    </div>
+                </form>
                 
-                <div id="divAffichePorte2">
-                </div>
-            </form>
+                <!--Serrure sur la porte de la première pièce-->
+                <form id="porte2" class="porte">
+                    <div id="tblPorte2">
+                        <table style="border: 0 solid transparent; width: 100%;">
+                            <tr>
+                                <!--Question, champ de saisie et bouton pour sortir de la salle-->
+                                <td>
+                                    <label for="echap2">\(🥖 \div (🥧 + 🥄) + 🍬 \div \sqrt{(🍓 - 🍪)} - 🍚 = \)</label>
+                                    <input type="number" id="echap2"><br><br>
+                                    <input type="button" value="Sortir de la salle" class="valider" onclick="validerSortie2()">
+                                </td>
+                                
+                                <!--Espace pour afficher les indices que le joueur a déjà trouvés-->
+                                <!--Source du "overflow-wrap": https://stackoverflow.com/questions/57195825/how-to-make-text-continue-to-new-line-when-reach-end-of-div-->
+                                <td id="indicesTrouves" valign="top" align="right" style="overflow-wrap: break-word;">
+                                </td>
+                            </tr>
+                        </table>
+                    </div><br>
+                    
+                    <!--Espace pour afficher si la réponse entrée est bonne ou mauvaise-->
+                    <div id="divAffichePorte2">
+                    </div>
+                </form>
             
-          </div>
+            </div>
         </div>
         
         <script>
@@ -167,8 +190,9 @@
             var afficheBol2 = document.getElementById("divAfficheBolDeux")
             var afficheBol3 = document.getElementById("divAfficheBolTrois")
             var afficheAffiche = document.getElementById("divAfficheAffiche")
+            var afficheIndices = document.getElementById("indicesTrouves")
 
-            //Associe le bouton à la fonction pour afficher la boîte avec la question
+            //Afficher la boîte avec question ou l'indice lorsqu'on clique sur le bol #1
             btn10.onclick = function(){
                 boite.style.display = "block"
                 q10.style.display = "block"
@@ -181,6 +205,7 @@
                 }
             }
             
+            //Afficher la boîte avec question ou l'indice lorsqu'on clique sur le bol #2
             btn11.onclick = function(){
                 boite.style.display = "block"
                 q11.style.display = "block"
@@ -193,6 +218,7 @@
                 }
             }
             
+            //Afficher la boîte avec question ou l'indice lorsqu'on clique sur le bol #3
             btn12.onclick = function(){
                 boite.style.display = "block"
                 q12.style.display = "block"
@@ -205,6 +231,7 @@
                 }
             }
             
+            //Afficher la boîte avec question ou l'indice lorsqu'on clique sur l'affiche
             btn13.onclick = function(){
                 boite.style.display = "block"
                 q13.style.display = "block"
@@ -217,13 +244,56 @@
                 }
             }
             
+            //Afficher la boîte avec question lorsqu'on clique sur la porte
             btnPorte2.onclick = function(){
                 boite.style.display = "block"
                 porte2.style.display = "block"
+                
+                // Créer une variable qui va contenir les indices des questions répondues correctement
+                var tblIndices = []
+                
+                // Si la question du four est faite, ajouter son indice
+                if (sessionStorage.getItem("questionFourFait") == "true") {
+                    tblIndices.push("🥧 = 73")
+                }
+                
+                // Si la question de la statue d'ours est faite, ajouter son indice
+                if (sessionStorage.getItem("questionOurs2Fait") == "true") {
+                    tblIndices.push("🍬 = 18")
+                }
+                
+                // Si la question du tiroir #2 est faite, ajouter son indice
+                if (sessionStorage.getItem("questionTiroir2Fait") == "true") {
+                    tblIndices.push("🥄 = 2")
+                }
+                
+                // Si la question du bol #1 est faite, ajouter son indice
+                if (sessionStorage.getItem("questionBol1Fait") == "true") {
+                    tblIndices.push("🍚 = 4")
+                }
+                
+                // Si la question du bol #2 est faite, ajouter son indice
+                if (sessionStorage.getItem("questionBol2Fait") == "true") {
+                    tblIndices.push("🍓 = 216")
+                }
+                
+                // Si la question du bol #3 est faite, ajouter son indice
+                if (sessionStorage.getItem("questionBol3Fait") == "true") {
+                    tblIndices.push("🥖 = 2025")
+                }
+                
+                // Si la question de l'affiche est faite, ajouter son indice
+                if (sessionStorage.getItem("questionAfficheFait") == "true") {
+                    tblIndices.push("🍪 = 180")
+                }
+                
+                // Afficher les indices à l'écran
+                afficheIndices.innerHTML = "Indices trouvés : <br>" + tblIndices.join(', &nbsp;')
             }
             
             //Récupère le bouton qui ferme le "popup"
             var ferme = document.getElementsByClassName("fermer")[0]
+            
             //Si le bouton pour fermer est cliqué, la boite disparaît
             ferme.onclick = function() {
                 boite.style.display = "none";
