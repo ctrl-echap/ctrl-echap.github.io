@@ -7,6 +7,7 @@
         <link rel="stylesheet" href="css/styles.css">
         <script src="script/script.js"></script>
         <style>
+            /* Styles pour le corps de la page */
             body {
               margin: 0;
               padding: 0;
@@ -21,12 +22,14 @@
               text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.7);
             }
         
+            /* Styles pour le titre de la page */
             h1 {
               font-size: 3rem;
               text-align: center;
               margin-bottom: 20px;
             }
         
+            /* Styles pour l'image GIF */
             .gif {
               width: 200px;
               height: auto;
@@ -34,16 +37,24 @@
         </style>
     </head>
     
-    <body onload="nombreDeBonnesReponses()">
-        <h1>Le temps est écoulé !</h1>
-        <img src="https://upload.wikimedia.org/wikipedia/commons/7/7a/Alarm_Clock_GIF_Animation_High_Res.gif" alt="Alarme" class="gif">
-        <h2 id="scoreFinal"></h2>
+    <body onload="nombreDeBonnesReponses()"> <!-- Calculer le montant de questions répondues au chargement de la page -->
         
+        <!-- Titre -->
+        <h1>Le temps est écoulé !</h1>
+        
+        <!-- Image GIF d'une horloge qui sonne -->
+        <img src="https://upload.wikimedia.org/wikipedia/commons/7/7a/Alarm_Clock_GIF_Animation_High_Res.gif" alt="Alarme" class="gif"><br>
+        
+        <!-- Endroit pour afficher le score final de l'utilisateur -->
+        <h2 id="scoreFinal"></h2><br>
+        
+        <!-- Bouton pour recommencer le jeu -->
         <div class="recommence2" onclick="recommencer2()">
             Recommencer
         </div>
       
         <script>
+            // Fonction pour calculer le nombre de questions répondues correctement de l'utilisateur
             function nombreDeBonnesReponses() {
                 // Créer une constante avec le nom de toutes les questions du jeu
                 const tblQuestions = ["questionOursFait", "questionPlanteFait", "questionPeintureFait", 
